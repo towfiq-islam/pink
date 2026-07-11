@@ -1,18 +1,52 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "gilroy";
+  src: url("/fonts/gilroy_light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url("/fonts/gilroy_regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url("/fonts/gilroy_medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url("/fonts/gilroy_bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url("/fonts/gilroy_heavy.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 @theme {
   /* Colors */
-  --color-primary-pink: #e33e78;
-  --color-secondary-gray: #212b36;
+  --color-primary-pink: #ea1e6e;
 
   /* Font Family */
-  --font-dm-sans: var(--font-dm-sans);
+  --font-gilroy: "gilroy", sans-serif;
 }
 
 body {
-  @apply font-dm-sans bg-[#F9FAFB];
+  @apply font-gilroy font-normal;
 }
 
 .container {
-  @apply max-w-415 mx-auto px-4 md:px-5 xl:px-12 2xl:px-5;
+  @apply max-w-325 mx-auto px-5;
 }
