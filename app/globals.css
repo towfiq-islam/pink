@@ -48,5 +48,5 @@ body {
 }
 
 .container {
-  @apply max-w-325 mx-auto px-5;
+  @apply max-w-350 mx-auto px-5;
 }
