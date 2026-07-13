@@ -4,7 +4,7 @@ import ToastProvider from "@/provider/ToastProvider";
 
 // Metadata
 export const metadata = {
-  title: "Starter Next.js",
+  title: "Dr. Saffy",
   description: "A starter template for Next.js projects with Redux",
   icons: {
     icon: "/favicon.png",
