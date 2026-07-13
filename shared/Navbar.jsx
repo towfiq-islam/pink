@@ -16,7 +16,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="border-b border-gray-100 bg-white py-4.5 sticky top-0">
+    <nav className="border-b border-gray-100 bg-white py-4.5 sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         <Link
           href="/"

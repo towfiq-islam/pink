@@ -54,40 +54,40 @@ export function PhoneLineup() {
                 />
               </figure>
               <div>
-                <p className="text-sm font-bold text-gray-900">{phone.name}</p>
-                <p className="text-xs text-gray-400">{phone.tagline}</p>
+                <p className="font-semibold text-gray-900">{phone.name}</p>
+                <p className="text-sm mt-0.5 text-gray-400">{phone.tagline}</p>
 
-                <div className="mt-2 flex gap-2">
+                <div className="mt-2 flex gap-1.5 border-b pb-3 border-gray-100">
                   {phone.swatches.map((c, idx) => (
-                    <span
+                    <button
                       key={idx}
-                      className="h-3.5 w-3.5 rounded-full border border-black/10"
+                      className="size-5 rounded-full cursor-pointer"
                       style={{ backgroundColor: c }}
                       aria-hidden
                     />
                   ))}
                 </div>
 
-                <p className="mt-4 text-sm text-gray-700">
-                  Starting at{" "}
-                  <span className="font-semibold">${phone.priceFull}</span>{" "}
-                  <span className="font-semibold">${phone.priceMonthly}</span>
-                  /month for 24 months
+                <p className="mt-3 font-semibold text-gray-700">
+                  Starting at ${phone.priceFull} ${phone.priceMonthly}/month for
+                  24 months
                 </p>
-                <p className="mt-1 text-xs text-gray-400">
+
+                <p className="mt-1 text-sm text-gray-400">
                   $0.00 down + tax due today
                 </p>
                 <p className="text-xs text-gray-400">
                   Full price: ${phone.total}
                 </p>
 
-                <div className="mt-4 flex items-center gap-2">
-                  <button className="flex-1 rounded-full bg-pink-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-pink-700">
+                <div className="mt-5 flex items-center gap-3">
+                  <button className="flex-1 rounded-2xl bg-primary-pink px-7 cursor-pointer py-2.5 font-medium text-white transition-all duration-300">
                     Shop Now
                   </button>
+
                   <button
                     aria-label="Add to bag"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-600 hover:border-pink-300 hover:text-pink-600"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-600 hover:border-pink-300 hover:text-white hover:bg-primary-pink text-xl cursor-pointer bg-gray-200"
                   >
                     <TbShoppingBag />
                   </button>

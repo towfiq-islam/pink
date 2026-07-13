@@ -38,17 +38,17 @@ export function Faq() {
 
   return (
     <section className="mx-auto max-w-3xl pt-14 pb-24 text-center">
-      <p className="text-xs font-bold uppercase tracking-wide text-pink-600">
+      <p className="text-xl font-medium uppercase tracking-wide text-primary-pink">
         FAQ
       </p>
-      <h2 className="mt-2 text-2xl font-extrabold text-gray-900 md:text-3xl">
+      <h2 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl">
         Can&apos;t see what you&apos;re searching for?
       </h2>
-      <p className="mt-2 text-sm text-gray-400">
+      <p className="mt-2.5 font-medium text-gray-400">
         Know Everything You Need, in One Place
       </p>
 
-      <div className="mt-8 space-y-3 text-left">
+      <div className="mt-9 space-y-3 text-left">
         {FAQ_ITEMS.map((item, i) => {
           const isOpen = openIndex === i;
 
@@ -61,14 +61,14 @@ export function Faq() {
               >
                 {item.q}
                 <FaAngleDown
-                  className={`h-4 w-4 shrink-0 text-gray-500 transition-transform ${
+                  className={`h-4 w-4 shrink-0 text-gray-500 transition-transform duration-300 ${
                     isOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
-              
+
               {isOpen && (
-                <p className="px-5 pb-4 text-sm leading-relaxed text-gray-500">
+                <p className="px-5 pb-4 text-[15px] font-medium leading-relaxed text-gray-500">
                   {item.a}
                 </p>
               )}
