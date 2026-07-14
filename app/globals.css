@@ -50,3 +50,11 @@ body {
 .container {
   @apply max-w-350 mx-auto px-5;
 }
+
+.primary_btn {
+  @apply rounded-2xl bg-primary-pink px-7 cursor-pointer py-3 font-medium text-white transition-all duration-300;
+}
+
+.secondary_btn {
+  @apply rounded-2xl bg-transparent px-10 cursor-pointer py-2.5 font-medium text-white border border-white transition-all duration-300;
+}

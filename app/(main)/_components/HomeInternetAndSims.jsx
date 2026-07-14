@@ -49,7 +49,7 @@ export function HomeInternetAndSims() {
                 Argentina
               </p>
               <p className="mt-1 text-sm text-gray-400">
-                From: {" "}
+                From:{" "}
                 <span className="font-semibold text-xs text-gray-700 bg-gray-100 px-2 py-1 rounded-full">
                   $6.00
                 </span>
@@ -61,7 +61,7 @@ export function HomeInternetAndSims() {
                 Brazil
               </div>
               <p className="mt-1 text-sm text-gray-400">
-                From: {" "}
+                From:{" "}
                 <span className="font-semibold text-xs text-gray-700 bg-gray-100 px-2 py-1 rounded-full">
                   $5.00
                 </span>
@@ -69,9 +69,7 @@ export function HomeInternetAndSims() {
             </div>
           </div>
 
-          <button className="mt-6 w-fit mx-auto block rounded-2xl bg-primary-pink px-7 cursor-pointer py-3 font-medium text-white transition-all duration-300">
-            See all plan
-          </button>
+          <button className="mt-6 primary_btn w-fit mx-auto block">See all plan</button>
         </div>
       </div>
     </section>

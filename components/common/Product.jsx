@@ -1,15 +1,24 @@
 import React from "react";
 import { TbShoppingBag } from "react-icons/tb";
 import Image from "next/image";
+import Link from "next/link";
 
 const Product = ({ product }) => {
   return (
-    <div className="rounded-2xl border border-gray-100 shadow p-5 flex gap-5 items-center">
+    <Link
+      href={`/product-details/1`}
+      className="rounded-2xl border border-gray-100 shadow p-5 flex gap-5 items-center group hover:bg-pink-50/30 hover:border-primary-pink hover:scale-[1.02] duration-300 transition-all"
+    >
+      {/* Left */}
       <figure className="shrink-0">
         <Image src={product?.img} width={74} height={119} alt={product?.name} />
       </figure>
+
+      {/* Right */}
       <div>
-        <p className="font-semibold text-gray-900">{product.name}</p>
+        <p className="font-semibold text-gray-900 group-hover:underline">
+          {product.name}
+        </p>
         <p className="text-sm mt-0.5 text-gray-400">{product.tagline}</p>
 
         <div className="mt-2 flex gap-1.5 border-b pb-3 border-gray-100">
@@ -32,9 +41,7 @@ const Product = ({ product }) => {
         <p className="text-xs text-gray-400">Full price: ${product.total}</p>
 
         <div className="mt-5 flex items-center gap-3">
-          <button className="flex-1 rounded-2xl bg-primary-pink px-7 cursor-pointer py-2.5 font-medium text-white transition-all duration-300">
-            Shop Now
-          </button>
+          <button className="flex-1 primary_btn !py-2.5">Shop Now</button>
 
           <button
             aria-label="Add to bag"
@@ -44,7 +51,7 @@ const Product = ({ product }) => {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

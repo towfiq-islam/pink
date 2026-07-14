@@ -23,9 +23,7 @@ export function Hero() {
             number on an Experience More or Experience Beyond plan.
           </p>
 
-          <button className="mt-5 rounded-2xl bg-primary-pink px-7 cursor-pointer py-3 font-medium text-white transition-all duration-300">
-            Shop Now
-          </button>
+          <button className="mt-5 primary_btn">Shop Now</button>
         </div>
       </div>
     </section>
