@@ -1,11 +1,18 @@
-import React from 'react';
+import ProductGallery from "../_components/ProductGallery";
+import { CustomizePanel } from "../_components/CustomizePanel";
+import { ProductDetailsTabs } from "../_components/ProductDetailsTabs";
 
-const page = () => {
+export default function ProductDetailsPage() {
   return (
-    <div>
-      
+    <div className="container pt-10 pb-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16">
+          <ProductGallery />
+          <CustomizePanel />
+        </div>
+
+        <ProductDetailsTabs />
+      </div>
     </div>
   );
-};
-
-export default page;
+}
