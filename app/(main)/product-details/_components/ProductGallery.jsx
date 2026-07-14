@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+
 const thumbnails = [
   { id: 1, src: "https://picsum.photos/seed/iphone-back/600/800" },
   { id: 2, src: "https://picsum.photos/seed/iphone-side/600/800" },
@@ -21,7 +22,7 @@ const ProductGallery = () => {
           to { opacity: 1; transform: scale(1); }
         }
         .gallery-main-image {
-          animation: galleryFadeIn 0.35s ease-out;
+          animation: galleryFadeIn 0.40s ease-out;
         }
       `}</style>
 

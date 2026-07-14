@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import {
-  FiGlobe as HiOutlineGlobeAlt,
-  FiCamera as HiOutlineCamera,
-  FiBatteryCharging as HiOutlineBatteryFull,
-} from "react-icons/fi";
+import g1 from "@/assets/g1.png";
+import g2 from "@/assets/g2.png";
+import g3 from "@/assets/g3.png";
+import Image from "next/image";
+
 const FEATURES = [
   "6.9\u2033 Super Retina XDR display",
   "UniBody Design for exceptional power",
@@ -27,26 +27,20 @@ const WHATS_IN_BOX = [
 
 const HIGHLIGHT_CARDS = [
   {
-    icon: HiOutlineGlobeAlt,
+    icon: g1,
     title: "T-Satellite with Starlink",
     desc: "This device is compatible with T-Satellite, so you can stay connected in places never thought possible with the only mobile + satellite network powering messaging and apps.",
-    bg: "#eaf2ff",
-    color: "#2f6fed",
   },
   {
-    icon: HiOutlineCamera,
+    icon: g2,
     title:
       "48MP Pro Fusion camera system: 48MP Fusion Main 48MP Fusion |Ultra Wide 48MP Fusion Telephoto",
     desc: "18MP Center Stage camera",
-    bg: "#eef0f6",
-    color: "#4b4f63",
   },
   {
-    icon: HiOutlineBatteryFull,
+    icon: g3,
     title: "50 Hours Talk Time",
     desc: "Standby Time",
-    bg: "#eafaf1",
-    color: "#22a35c",
   },
 ];
 
@@ -90,11 +84,11 @@ const SPEC_COLUMN_RIGHT = [
 
 function SpecList({ items }) {
   return (
-    <div className="divide-y divide-gray-100">
-      {items.map(item => (
+    <div className="divide-y divide-gray-200">
+      {items?.map(item => (
         <div key={item.label} className="py-3">
-          <p className="text-sm font-medium">{item.label}</p>
-          <p className="text-sm text-gray-400 mt-1">{item.value}</p>
+          <p className="text-sm font-semibold text-gray-600">{item.label}</p>
+          <p className="text-sm text-gray-400 font-medium mt-1">{item.value}</p>
         </div>
       ))}
     </div>
@@ -103,7 +97,8 @@ function SpecList({ items }) {
 
 function OverviewTab() {
   return (
-    <div className="grid md:grid-cols-2 gap-10">
+    <div className="grid md:grid-cols-2 gap-12">
+      {/* Left */}
       <div>
         <div className="grid grid-cols-2 gap-3 mb-8">
           <div
@@ -129,36 +124,33 @@ function OverviewTab() {
           />
         </div>
 
-        <h3 className="text-sm font-semibold mb-3">Features</h3>
-        <ul className="space-y-2 mb-8">
+        <h3 className="font-semibold mb-3">Features</h3>
+        <ul className="ps-5 space-y-2.5 list-disc list-inside mb-8">
           {FEATURES.map(f => (
-            <li key={f} className="text-sm text-gray-500 flex gap-2">
-              <span>&middot;</span>
-              <span>{f}</span>
+            <li key={f} className="text-sm text-gray-500 font-medium">
+              {f}
             </li>
           ))}
         </ul>
 
         <SpecList items={SPEC_COLUMN_LEFT} />
 
-        <h3 className="text-sm font-semibold mt-8 mb-2">
-          Additional spec details
-        </h3>
+        <h3 className="font-semibold mt-8 mb-2">Additional spec details</h3>
         <SpecList items={[SPEC_COLUMN_LEFT[SPEC_COLUMN_LEFT.length - 1]]} />
       </div>
 
+      {/* Right */}
       <div>
-        <h3 className="text-sm font-semibold mb-3">What&apos;s in the box</h3>
-        <ul className="space-y-2 mb-10">
+        <h3 className="font-semibold mb-3">What&apos;s in the box</h3>
+        <ul className="ps-5 space-y-2 list-disc list-inside mb-10">
           {WHATS_IN_BOX.map(item => (
-            <li key={item} className="text-sm text-gray-500 flex gap-2">
-              <span>&middot;</span>
-              <span>{item}</span>
+            <li key={item} className="text-sm font-medium text-gray-500">
+              {item}
             </li>
           ))}
         </ul>
 
-        <h3 className="text-sm font-semibold mb-2">spec details</h3>
+        <h3 className="font-semibold mb-2">Spec details</h3>
         <SpecList items={SPEC_COLUMN_RIGHT} />
       </div>
     </div>
@@ -168,53 +160,53 @@ function OverviewTab() {
 function SpecsTab() {
   return (
     <div>
-      <div className="grid md:grid-cols-3 gap-4 mb-10">
-        {HIGHLIGHT_CARDS.map(({ icon: Icon, title, desc, bg, color }) => (
-          <div key={title} className="rounded-xl border border-gray-100 p-5">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center mb-3"
-              style={{ backgroundColor: bg, color }}
-            >
-              <Icon size={20} />
-            </div>
-            <p className="text-sm font-semibold mb-1">{title}</p>
-            <p className="text-xs text-gray-400">{desc}</p>
+      <div className="grid md:grid-cols-3 gap-5 mb-10">
+        {HIGHLIGHT_CARDS.map(({ icon, title, desc }) => (
+          <div
+            key={title}
+            className="rounded-xl border text-center border-gray-100 shadow px-6 py-7"
+          >
+            <figure className="w-10 h-10 mx-auto rounded-full flex items-center justify-center mb-3">
+              <Image
+                src={icon}
+                alt="icon"
+                className="w-full h-full object-cover"
+              />
+            </figure>
+            <p className="font-semibold mt-5 mb-2">{title}</p>
+            <p className="text-sm text-gray-500">{desc}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-14">
+        {/* Left */}
         <div>
-          <h3 className="text-sm font-semibold mb-3">Other features</h3>
-          <ul className="space-y-2 mb-8">
+          <h3 className="font-semibold mb-3">Other features</h3>
+          <ul className="space-y-2 ps-5 list-disc list-inside mb-8">
             {FEATURES.map(f => (
-              <li key={f} className="text-sm text-gray-500 flex gap-2">
-                <span>&middot;</span>
-                <span>{f}</span>
+              <li key={f} className="text-sm text-gray-500 font-medium">
+                {f}
               </li>
             ))}
           </ul>
 
-          <h3 className="text-sm font-semibold mb-2">
-            Additional spec details
-          </h3>
+          <h3 className="font-semibold mb-2">Additional spec details</h3>
           <SpecList items={SPEC_COLUMN_LEFT} />
         </div>
 
+        {/* Right */}
         <div>
           <h3 className="text-sm font-semibold mb-3">What&apos;s in the box</h3>
-          <ul className="space-y-2 mb-8">
+          <ul className="space-y-2 ps-5 list-disc list-inside mb-8">
             {WHATS_IN_BOX.map(item => (
-              <li key={item} className="text-sm text-gray-500 flex gap-2">
-                <span>&middot;</span>
-                <span>{item}</span>
+              <li key={item} className="text-sm text-gray-500 font-medium">
+                {item}
               </li>
             ))}
           </ul>
 
-          <h3 className="text-sm font-semibold mb-2">
-            Additional spec details
-          </h3>
+          <h3 className="font-semibold mb-2">Additional spec details</h3>
           <SpecList items={SPEC_COLUMN_RIGHT} />
         </div>
       </div>
@@ -226,27 +218,45 @@ export function ProductDetailsTabs() {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="mt-14">
-      <div className="flex justify-center gap-10 border-b border-gray-200 mb-10">
+    <div className="mt-16">
+      <style jsx>{`
+        @keyframes tabFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .tab-content {
+          animation: tabFadeIn 0.50s ease-out;
+        }
+      `}</style>
+
+      <div className="flex justify-center border-gray-200 mb-14">
         {[
           { id: "overview", label: "Overview" },
           { id: "specs", label: "Specs" },
-        ].map(tab => (
+        ]?.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`pb-3 text-sm font-medium -mb-px border-b-2 ${
-              activeTab === tab.id
+            className={`pb-3 flex-1 block cursor-pointer font-semibold border-b-2 transition-colors duration-200 ${
+              activeTab === tab?.id
                 ? "border-primary-pink text-gray-900"
-                : "border-transparent text-gray-400"
+                : "border-gray-200 text-gray-400 hover:text-gray-600"
             }`}
           >
-            {tab.label}
+            {tab?.label}
           </button>
         ))}
       </div>
 
-      {activeTab === "overview" ? <OverviewTab /> : <SpecsTab />}
+      <div key={activeTab} className="tab-content">
+        {activeTab === "overview" ? <OverviewTab /> : <SpecsTab />}
+      </div>
     </div>
   );
 }
