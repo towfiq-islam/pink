@@ -255,12 +255,12 @@ const DataTabs = ({ onSubmit }) => {
   const [activeTab, setActiveTab] = useState("unlimited");
 
   return (
-    <div className="container mt-8">
+    <div className="container mt-6 md:mt-8">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-lg font-semibold text-gray-900 mb-2.5">Data</h2>
 
-        <div className="shadow border border-gray-100 rounded-2xl p-5">
-          <div className="flex pb-7">
+        <div className="shadow border border-gray-100 rounded-2xl p-4 md:p-5">
+          <div className="flex pb-5 md:pb-7">
             {TABS.map(tab => {
               const isActive = tab.id === activeTab;
 
@@ -269,7 +269,7 @@ const DataTabs = ({ onSubmit }) => {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex-1 font-semibold pb-3 transition-colors duration-300 border-b cursor-pointer ${
+                  className={`relative text-[13px] md:text-base flex-1 font-semibold pb-3 transition-colors duration-300 border-b cursor-pointer ${
                     isActive
                       ? "text-primary-pink border-primary-pink border-b-2"
                       : "text-gray-500 hover:text-gray-700 border-gray-300"

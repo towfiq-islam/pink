@@ -8,9 +8,9 @@ export function NetworkCard({ country, flagEmoji }) {
   const [open, isOpen] = useState(false);
 
   return (
-    <div className="container pt-7">
+    <div className="container pt-5 md:pt-7">
       <div className="max-w-5xl mx-auto">
-        <nav className="text-sm text-gray-400 font-medium mb-3 flex items-center gap-1">
+        <nav className="text-sm text-gray-400 font-medium mb-2 md:mb-3 flex items-center gap-1">
           <span>Global Sim</span>
           <span>/</span>
           <span>Local</span>
@@ -18,9 +18,9 @@ export function NetworkCard({ country, flagEmoji }) {
           <span className="text-primary-pink font-medium">Bangladesh</span>
         </nav>
 
-        <h1 className="text-2xl xl:text-3xl font-semibold mb-6">iPhone 17 Pro Max</h1>
+        <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-3 md:mb-6">iPhone 17 Pro Max</h1>
 
-        <div className="shadow border border-gray-100 rounded-2xl p-7 space-y-5">
+        <div className="shadow border border-gray-100 rounded-2xl p-4 md:p-7 space-y-5">
           <div className="flex items-center gap-4 pb-5 border-b border-gray-200">
             <span className="text-xl font-medium leading-none bg-gray-200 w-14 h-10 rounded-lg grid place-items-center">
               {flagEmoji}
