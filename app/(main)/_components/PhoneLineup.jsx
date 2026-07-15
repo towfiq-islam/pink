@@ -35,7 +35,7 @@ export function PhoneLineup() {
   return (
     <section className="container">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-2xl xl:text-3xl font-semibold text-gray-900">
+        <h2 className="text-xl md:text-2xl xl:text-3xl font-semibold text-gray-900">
           Phone
         </h2>
 

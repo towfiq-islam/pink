@@ -16,13 +16,13 @@ const NAV_LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="rounded-t-3xl bg-black text-white py-10">
-      <div className="container flex flex-col items-center gap-8">
+    <footer className="rounded-t-3xl bg-black text-white py-5 md:py-10">
+      <div className="container flex flex-col items-center gap-5 md:gap-8">
         <span className="text-3xl font-semibold tracking-wide text-[#FF69B4]">
           LOGO
         </span>
 
-        <nav className="flex flex-wrap items-center justify-center gap-10 text-[15px] text-gray-200">
+        <nav className="flex flex-wrap items-center justify-center gap-5 md:gap-10 text-sm md:text-[15px] text-gray-200">
           {NAV_LINKS?.map(link => (
             <Link
               key={link?.path}
@@ -34,7 +34,7 @@ const Footer = () => {
           ))}
         </nav>
 
-        <div className="flex w-full flex-col items-center justify-between gap-4 text-sm text-gray-100 sm:flex-row">
+        <div className="flex w-full  items-center justify-between gap-5 text-sm text-gray-100">
           <span>Copyright 2026 © Logo</span>
 
           <div className="flex items-center gap-5 text-base">

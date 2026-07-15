@@ -33,16 +33,16 @@ export function PopularSimChoices() {
   const [query, setQuery] = useState("");
 
   return (
-    <section className="container pt-12 xl:pt-16 text-center">
+    <section className="container pt-10 lg:pt-12 xl:pt-16 text-center">
       <p className="font-semibold mb-2 text-primary-pink">Global Sims</p>
-      <h2 className="text-3xl font-semibold mb-2">
+      <h2 className="text-2xl lg:text-3xl font-semibold mb-2">
         Popular Global Sim Choices
       </h2>
-      <p className="text-gray-400 font-medium mb-8">
+      <p className="text-gray-400 font-medium mb-5 lg:mb-8">
         Choose the best ones and get connected throughout your trip
       </p>
 
-      <div className="flex justify-center mb-12">
+      <div className="flex justify-center mb-7 lg:mb-12">
         <div className="flex items-center gap-2 border border-gray-200 rounded-full pl-4 pr-1.5 py-1.5 w-full max-w-sm">
           <FiMapPin className="text-gray-400 shrink-0" size={16} />
           <span className="text-gray-200">|</span>
@@ -72,7 +72,7 @@ export function PopularSimChoices() {
 
       <div
         key={activeTab}
-        className="grid grid-cols-2 md:grid-cols-4 gap-5 text-left"
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 text-left"
       >
         {COUNTRIES.map((c, i) => (
           <Sim key={i} sim={c} index={i} />

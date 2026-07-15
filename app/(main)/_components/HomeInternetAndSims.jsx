@@ -4,9 +4,9 @@ import internet from "@/assets/internet.png";
 export function HomeInternetAndSims() {
   return (
     <section className="container">
-      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-5 xl:gap-6 pt-6 md:grid-cols-2">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-5 xl:gap-6 pt-6 lg:grid-cols-2">
         {/* 5G home internet */}
-        <div className="rounded-2xl border border-gray-100 shadow p-6 flex gap-6 items-start">
+        <div className="rounded-2xl border border-gray-100 shadow p-5 md:p-6 flex flex-col md:flex-row gap-6 items-start">
           <figure className="shrink-0">
             <Image
               width={122}
@@ -18,7 +18,7 @@ export function HomeInternetAndSims() {
           </figure>
 
           <div>
-            <h3 className="text-xl xl:text-[22px] font-semibold text-gray-900">
+            <h3 className="text-lg md:text-xl xl:text-[22px] font-semibold text-gray-900">
               Now the fastest 5G home internet
             </h3>
             <p className="mt-1 font-semibold text-gray-800">
@@ -38,12 +38,12 @@ export function HomeInternetAndSims() {
         </div>
 
         {/* Global sims */}
-        <div className="rounded-2xl border border-gray-100 shadow p-6">
-          <h3 className="text-xl xl:text-[22px] font-semibold text-gray-900">
+        <div className="rounded-2xl border border-gray-100 shadow p-4 md:p-6">
+          <h3 className="text-lg md:text-xl xl:text-[22px] font-semibold text-gray-900">
             Global Sims
           </h3>
 
-          <div className="mt-4 grid grid-cols-2 gap-5">
+          <div className="mt-3 md:mt-4 grid grid-cols-2 gap-5">
             <div className="p-3 border border-gray-200 rounded-xl">
               <p className="flex items-center gap-2 font-semibold text-gray-800">
                 Argentina
@@ -69,7 +69,9 @@ export function HomeInternetAndSims() {
             </div>
           </div>
 
-          <button className="mt-6 primary_btn w-fit mx-auto block">See all plan</button>
+          <button className="mt-6 primary_btn w-fit mx-auto block">
+            See all plan
+          </button>
         </div>
       </div>
     </section>

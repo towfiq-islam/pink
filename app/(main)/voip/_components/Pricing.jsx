@@ -91,7 +91,7 @@ export default function Pricing() {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <section className="container mt-14 xl:mt-20">
+    <section className="container mt-12 lg:mt-14 xl:mt-20">
       <div className="flex justify-center gap-3 mb-10 xl:mb-12">
         <button
           onClick={() => setBilling("monthly")}
@@ -116,7 +116,7 @@ export default function Pricing() {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-6">
         {PLAN_DATA[billing].map(plan => (
           <div
             key={plan.name}

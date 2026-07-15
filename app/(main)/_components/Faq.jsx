@@ -37,50 +37,52 @@ export function Faq() {
   const toggle = i => setOpenIndex(current => (current === i ? null : i));
 
   return (
-    <section className="mx-auto max-w-3xl pt-12 xl:pt-14 pb-20 xl:pb-24 text-center">
-      <p className="text-xl font-medium uppercase tracking-wide text-primary-pink">
-        FAQ
-      </p>
-      <h2 className="mt-2 text-xl xl:text-2xl font-semibold text-gray-800 md:text-3xl">
-        Can&apos;t see what you&apos;re searching for?
-      </h2>
-      <p className="mt-2.5 font-medium text-gray-400">
-        Know Everything You Need, in One Place
-      </p>
+    <section className="container pt-10 md:pt-12 xl:pt-14 pb-10 md:pb-14 lg:pb-20 xl:pb-24 text-center">
+      <div className="mx-auto max-w-3xl">
+        <p className="text-lg md:text-xl font-medium uppercase tracking-wide text-primary-pink">
+          FAQ
+        </p>
+        <h2 className="mt-2 text-xl md:text-2xl xl:text-3xl font-semibold text-gray-80">
+          Can&apos;t see what you&apos;re searching for?
+        </h2>
+        <p className="mt-2.5 font-medium text-sm md:text-base text-gray-400">
+          Know Everything You Need, in One Place
+        </p>
 
-      <div className="mt-9 space-y-3 text-left">
-        {FAQ_ITEMS.map((item, i) => {
-          const isOpen = openIndex === i;
+        <div className="mt-7 md:mt-9 space-y-3 text-left">
+          {FAQ_ITEMS.map((item, i) => {
+            const isOpen = openIndex === i;
 
-          return (
-            <div key={i} className="rounded-xl border border-gray-200">
-              <button
-                onClick={() => toggle(i)}
-                aria-expanded={isOpen}
-                className="flex w-full items-center justify-between cursor-pointer px-5 py-5 text-left font-semibold text-gray-800"
-              >
-                {item.q}
-                <FaAngleDown
-                  className={`h-4 w-4 shrink-0 text-gray-500 transition-transform duration-300 ${
-                    isOpen ? "rotate-180" : ""
+            return (
+              <div key={i} className="rounded-xl border border-gray-200">
+                <button
+                  onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between cursor-pointer p-4 md:p-5 text-sm md:text-base text-left font-semibold text-gray-800"
+                >
+                  {item.q}
+                  <FaAngleDown
+                    className={`h-4 w-4 shrink-0 text-gray-500 transition-transform duration-300 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                <div
+                  className={`grid overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
-                />
-              </button>
-
-              <div
-                className={`grid overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out ${
-                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                }`}
-              >
-                <div className="min-h-0 overflow-hidden">
-                  <p className="px-5 pb-4 text-[15px] font-medium leading-relaxed text-gray-500">
-                    {item.a}
-                  </p>
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <p className="px-5 pb-4 text-sm md:text-[15px] font-medium leading-relaxed text-gray-500">
+                      {item.a}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
