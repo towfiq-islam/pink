@@ -3,20 +3,20 @@ import b3 from "@/assets/b3.png";
 
 export function ProductSpotlight() {
   return (
-    <div className="flex gap-10 items-center bg-[#6A6A6A]/4 rounded-2xl p-4">
-      <div className="relative shrink-0">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-10 items-center bg-[#6A6A6A]/4 rounded-2xl p-4">
+      <figure className="relative shrink-0">
         <Image
           src={b3}
           alt="iPhone 17 Pro"
           className="w-fit h-72 sm:h-96 object-cover rounded-2xl"
         />
-      </div>
+      </figure>
 
       <div>
         <p className="md:text-lg xl:text-xl font-semibold tracking-wide text-primary-pink">
           Apple
         </p>
-        <h3 className="mt-3 mb-2 md:mb-3 xl:mb-5 text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 leading-10">
+        <h3 className="mt-3 mb-2 md:mb-3 xl:mb-5 text-lg md:text-xl xl:text-3xl font-semibold text-gray-900 xl:leading-10">
           The Most Powerful and Advanced iPhone Ever Created for Professionals
           and Everyday Users
         </h3>

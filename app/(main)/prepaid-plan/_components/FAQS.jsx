@@ -15,11 +15,11 @@ export function FAQS() {
 
   return (
     <div className="container bg-[#6A6A6A]/4 rounded-2xl p-6 sm:p-8">
-      <h2 className="text-center text-2xl font-semibold text-gray-900 uppercase mb-7">
+      <h2 className="text-center text-2xl font-semibold text-gray-900 uppercase mb-5 md:mb-7">
         FAQs
       </h2>
 
-      <div className="grid sm:grid-cols-2 gap-4 items-start">
+      <div className="grid sm:grid-cols-2 gap-3 md:gap-4 items-start">
         {faq?.map((question, i) => {
           const isOpen = openIndex === i;
 

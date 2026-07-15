@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
         Why Customers love our VoIP
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {REASONS?.map(reason => (
           <ReasonCard key={reason?.title} reason={reason} />
         ))}

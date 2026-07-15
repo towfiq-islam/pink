@@ -40,7 +40,7 @@ const REASONS = [
 
 export default function PrepaidPlansPage() {
   return (
-    <section className="container pt-12 pb-10 space-y-20">
+    <section className="container pt-7 md:pt-10 lg:pt-12 pb-10 space-y-10 lg:space-y-14 xl:space-y-20">
       <NavTabs />
       <Banner
         bannerBg={b1}
@@ -54,15 +54,15 @@ export default function PrepaidPlansPage() {
       <ProductSpotlight />
       <TwoColumnPromo />
       <div>
-        <h2 className="text-center text-2xl sm:text-4xl font-semibold text-gray-900 mb-5">
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-900 mb-3 xl:mb-5">
           Exclusive benefits. Unforgettable experiences.
         </h2>
 
-        <p className="text-center text-gray-500 text-lg font-medium max-w-5xl mx-auto mb-8">
+        <p className="text-center text-gray-500 text-sm md:text-base xl:text-lg font-medium max-w-5xl mx-auto mb-8">
           Discover premium advantages and curated experiences that reward your
           loyalty every step of the way.
         </p>
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {REASONS?.map(reason => (
             <ReasonCard key={reason?.title} reason={reason} />
           ))}
@@ -70,7 +70,7 @@ export default function PrepaidPlansPage() {
       </div>
 
       <div className="container relative bg-black rounded-2xl overflow-hidden grid sm:grid-cols-2 items-center">
-        <div className="px-5 py-16">
+        <div className="px-2 md:px-5 py-10 md:py-16">
           <h3 className="text-white text-xl sm:text-2xl font-semibold leading-9 max-w-md mb-4">
             Experience America&apos;s largest and fastest 5G network.
           </h3>
@@ -92,13 +92,13 @@ export default function PrepaidPlansPage() {
 
       <FAQS />
 
-      <div className="bg-gray-50 -mt-3 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-gray-50 -mt-3 rounded-2xl p-5 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <p className="text-primary-pink text-lg font-semibold mb-2">
             Ready to switch?
           </p>
           <p className="text-sm font-medium text-gray-500 flex items-center gap-1.5">
-            <FiPhone size={14} />
+            <FiPhone size={14} className="shrink-0" />
             Call 800-375-1126 or visit a T-Mobile store near you.
           </p>
         </div>
@@ -108,6 +108,7 @@ export default function PrepaidPlansPage() {
             <FiMapPin size={14} />
             Find a store
           </button>
+
           <button className="primary_btn">Shop Tablets</button>
         </div>
       </div>

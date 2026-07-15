@@ -21,7 +21,7 @@ const PROMO_CARDS = [
 
 export function TwoColumnPromo() {
   return (
-    <div className="grid sm:grid-cols-2 gap-6">
+    <div className="grid md:grid-cols-2 gap-6">
       {PROMO_CARDS.map(card => (
         <div key={card.title}>
           <Image
@@ -29,10 +29,10 @@ export function TwoColumnPromo() {
             alt={card.alt}
             className="w-full h-74 object-cover rounded-2xl mb-5"
           />
-          <h4 className="font-semibold text-xl text-gray-800 mb-2">
+          <h4 className="font-semibold text-lg md:text-xl text-gray-800 mb-2">
             {card.title}
           </h4>
-          <p className="text-gray-500 font-medium mb-4">{card.body}</p>
+          <p className="text-gray-500 text-sm md:text-base font-medium mb-3 md:mb-4">{card.body}</p>
           <button className="primary_btn">{card.cta}</button>
         </div>
       ))}

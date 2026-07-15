@@ -4,11 +4,11 @@ const PRICE_OPTIONS = [{ label: "$40" }, { label: "$60" }, { label: "$45" }];
 const Plans = () => {
   return (
     <div>
-      <h2 className="text-center text-2xl sm:text-4xl font-semibold text-gray-900 mb-5">
+      <h2 className="text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-900 mb-3 xl:mb-5">
         Get more with our new prepaid phone plans.
       </h2>
 
-      <p className="text-center text-gray-500 text-lg font-medium max-w-5xl mx-auto mb-8">
+      <p className="text-center text-gray-500 text-sm md:text-base xl:text-lg font-medium max-w-5xl mx-auto mb-8">
         Enjoy greater flexibility, faster speeds, and affordable pricing with
         prepaid plans designed to keep you connected without long-term
         commitments.
