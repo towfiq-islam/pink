@@ -219,22 +219,6 @@ export function ProductDetailsTabs() {
 
   return (
     <div className="mt-16">
-      <style jsx>{`
-        @keyframes tabFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(18px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .tab-content {
-          animation: tabFadeIn 0.50s ease-out;
-        }
-      `}</style>
-
       <div className="flex justify-center border-gray-200 mb-14">
         {[
           { id: "overview", label: "Overview" },

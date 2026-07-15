@@ -16,16 +16,6 @@ const ProductGallery = () => {
 
   return (
     <div>
-      <style>{`
-        @keyframes galleryFadeIn {
-          from { opacity: 0; transform: scale(1.03); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        .gallery-main-image {
-          animation: galleryFadeIn 0.40s ease-out;
-        }
-      `}</style>
-
       <nav className="text-sm text-gray-400 font-medium mb-3 flex items-center gap-1">
         <span>Phones</span>
         <span>/</span>

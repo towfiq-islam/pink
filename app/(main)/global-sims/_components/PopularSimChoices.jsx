@@ -1,6 +1,5 @@
 "use client";
 import Sim from "@/components/common/Sim";
-import Link from "next/link";
 import React, { useState } from "react";
 import { FiSearch, FiMapPin } from "react-icons/fi";
 
@@ -70,16 +69,6 @@ export function PopularSimChoices() {
           </button>
         ))}
       </div>
-
-      <style>{`
-        @keyframes simCardFadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .sim-grid {
-          animation: simCardFadeIn 0.5s ease-out both;
-        }
-      `}</style>
 
       <div
         key={activeTab}
