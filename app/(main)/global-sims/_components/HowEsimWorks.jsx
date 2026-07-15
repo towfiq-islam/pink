@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function HowEsimWorks() {
   return (
-    <section className="container pt-24 pb-28 text-center">
+    <section className="container pt-22 pb-28 text-center">
       <div className="max-w-3xl mx-auto">
         <p className="font-semibold mb-2 text-primary-pink">eSIM APP</p>
         <h2 className="text-4xl font-semibold mb-12">How Our eSIM Works?</h2>

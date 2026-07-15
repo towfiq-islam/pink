@@ -41,7 +41,7 @@ const Navbar = () => {
                 }`}
               >
                 {link?.label}
-                {hasChevron && <FaAngleDown />}
+                {/* {hasChevron && <FaAngleDown />} */}
               </Link>
             );
           })}

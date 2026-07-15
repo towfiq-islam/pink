@@ -21,7 +21,7 @@ const ProductGallery = () => {
         <span>/</span>
         <span>Apple</span>
         <span>/</span>
-        <span className="text-primary-pink font-semibold">
+        <span className="text-primary-pink font-medium">
           iPhone 17 Pro Max
         </span>
       </nav>
