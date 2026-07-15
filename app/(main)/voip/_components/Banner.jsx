@@ -19,7 +19,7 @@ export default function Banner() {
         />
 
         <div className="relative z-10 px-6">
-          <h1 className="text-white text-4xl font-semibold leading-tight">
+          <h1 className="text-white text-3xl xl:text-4xl font-semibold leading-tight">
             Crystal-Clear VoIP Calling for Home &amp; Business
           </h1>
 

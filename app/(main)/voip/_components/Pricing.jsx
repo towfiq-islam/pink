@@ -91,8 +91,8 @@ export default function Pricing() {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <section className="container mt-20">
-      <div className="flex justify-center gap-3 mb-12">
+    <section className="container mt-14 xl:mt-20">
+      <div className="flex justify-center gap-3 mb-10 xl:mb-12">
         <button
           onClick={() => setBilling("monthly")}
           className={`rounded-xl px-10 cursor-pointer py-3 text-[15px] font-medium transition-colors duration-300 ${
@@ -138,7 +138,7 @@ export default function Pricing() {
               })}
             </ul>
 
-            <button className="w-full py-3 rounded-lg border cursor-pointer duration-300 transition-all hover:bg-primary-pink hover:text-white font-semibold border-primary-pink text-primary-pink group-hover:bg-primary-pink group-hover:text-white">
+            <button className="w-full py-2 xl:py-3 rounded-lg border cursor-pointer duration-300 transition-all hover:bg-primary-pink hover:text-white font-semibold border-primary-pink text-primary-pink group-hover:bg-primary-pink group-hover:text-white">
               Choose Plan
             </button>
           </div>

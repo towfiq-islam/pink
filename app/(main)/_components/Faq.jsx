@@ -37,11 +37,11 @@ export function Faq() {
   const toggle = i => setOpenIndex(current => (current === i ? null : i));
 
   return (
-    <section className="mx-auto max-w-3xl pt-14 pb-24 text-center">
+    <section className="mx-auto max-w-3xl pt-12 xl:pt-14 pb-20 xl:pb-24 text-center">
       <p className="text-xl font-medium uppercase tracking-wide text-primary-pink">
         FAQ
       </p>
-      <h2 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl">
+      <h2 className="mt-2 text-xl xl:text-2xl font-semibold text-gray-800 md:text-3xl">
         Can&apos;t see what you&apos;re searching for?
       </h2>
       <p className="mt-2.5 font-medium text-gray-400">

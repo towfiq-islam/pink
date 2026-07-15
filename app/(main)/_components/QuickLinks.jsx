@@ -14,13 +14,13 @@ const QUICK_LINKS = [
 
 export function QuickLinks() {
   return (
-    <div className="container grid grid-cols-2 gap-4 pt-10 sm:grid-cols-3 md:grid-cols-5">
+    <div className="container grid grid-cols-2 gap-4 pt-8 xl:pt-10 sm:grid-cols-3 lg:grid-cols-5">
       {QUICK_LINKS?.map(({ label, icon: Icon }) => (
         <button
           key={label}
-          className="flex flex-col gap-4 rounded-xl border border-[#EEEEEEEE] p-5 text-left font-semibold text-gray-800 transition-colors duration-300 cursor-pointer hover:border-pink-300 hover:bg-pink-50"
+          className="flex flex-col gap-3 xl:gap-4 rounded-xl border border-[#EEEEEEEE] p-5 text-left font-semibold text-gray-800 transition-colors duration-300 cursor-pointer hover:border-pink-300 hover:bg-pink-50"
         >
-          <Icon className="text-4xl text-primary-pink" />
+          <Icon className="text-3xl xl:text-4xl text-primary-pink" />
           <span>{label}</span>
         </button>
       ))}

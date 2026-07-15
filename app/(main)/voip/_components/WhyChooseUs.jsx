@@ -29,8 +29,8 @@ const REASONS = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="container mt-20 mb-22">
-      <h2 className="text-center text-3xl font-semibold mb-8">
+    <section className="container mt-14 xl:mt-20 mb-16 xl:mb-22">
+      <h2 className="text-center text-2xl xl:text-3xl font-semibold mb-8">
         Why Customers love our VoIP
       </h2>
 
@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
             key={title}
             className="rounded-xl overflow-hidden border border-gray-100 p-2.5 bg-[#6A6A6A]/5 group duration-300 transition-all"
           >
-            <figure className="h-64 flex items-center justify-center relative rounded-lg overflow-hidden">
+            <figure className="h-50 xl:h-58 2xl:h-64 flex items-center justify-center relative rounded-lg overflow-hidden">
               <Image
                 src={icon}
                 alt="thumbnail"

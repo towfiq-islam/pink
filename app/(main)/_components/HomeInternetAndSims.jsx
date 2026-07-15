@@ -4,7 +4,7 @@ import internet from "@/assets/internet.png";
 export function HomeInternetAndSims() {
   return (
     <section className="container">
-      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 pt-6 md:grid-cols-2">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-5 xl:gap-6 pt-6 md:grid-cols-2">
         {/* 5G home internet */}
         <div className="rounded-2xl border border-gray-100 shadow p-6 flex gap-6 items-start">
           <figure className="shrink-0">
@@ -18,7 +18,7 @@ export function HomeInternetAndSims() {
           </figure>
 
           <div>
-            <h3 className="text-[22px] font-semibold text-gray-900">
+            <h3 className="text-xl xl:text-[22px] font-semibold text-gray-900">
               Now the fastest 5G home internet
             </h3>
             <p className="mt-1 font-semibold text-gray-800">
@@ -39,7 +39,7 @@ export function HomeInternetAndSims() {
 
         {/* Global sims */}
         <div className="rounded-2xl border border-gray-100 shadow p-6">
-          <h3 className="text-[22px] font-semibold text-gray-900">
+          <h3 className="text-xl xl:text-[22px] font-semibold text-gray-900">
             Global Sims
           </h3>
 

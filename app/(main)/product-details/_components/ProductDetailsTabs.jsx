@@ -97,7 +97,7 @@ function SpecList({ items }) {
 
 function OverviewTab() {
   return (
-    <div className="grid md:grid-cols-2 gap-12">
+    <div className="grid md:grid-cols-2 gap-10 xl:gap-12">
       {/* Left */}
       <div>
         <div className="grid grid-cols-2 gap-3 mb-8">
@@ -218,8 +218,8 @@ export function ProductDetailsTabs() {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="mt-16">
-      <div className="flex justify-center border-gray-200 mb-14">
+    <div className="mt-12 xl:mt-16">
+      <div className="flex justify-center border-gray-200 mb-10 xl:mb-14">
         {[
           { id: "overview", label: "Overview" },
           { id: "specs", label: "Specs" },

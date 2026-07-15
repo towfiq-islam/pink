@@ -33,7 +33,7 @@ export function PopularSimChoices() {
   const [query, setQuery] = useState("");
 
   return (
-    <section className="container pt-16 text-center">
+    <section className="container pt-12 xl:pt-16 text-center">
       <p className="font-semibold mb-2 text-primary-pink">Global Sims</p>
       <h2 className="text-3xl font-semibold mb-2">
         Popular Global Sim Choices
@@ -58,12 +58,12 @@ export function PopularSimChoices() {
         </div>
       </div>
 
-      <div className="inline-flex justify-center gap-7 rounded-2xl bg-gray-50 p-3 mb-10">
+      <div className="inline-flex justify-center gap-5 xl:gap-7 rounded-2xl bg-gray-50 p-3 mb-10">
         {TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-10 py-3 cursor-pointer rounded-xl font-medium duration-300 transition-colors ${activeTab === tab.id ? "text-white bg-primary-pink" : "text-gray-500  hover:bg-gray-200"}`}
+            className={`px-7 xl:px-10 py-2 xl:py-3 cursor-pointer rounded-xl font-medium duration-300 transition-colors ${activeTab === tab.id ? "text-white bg-primary-pink" : "text-gray-500  hover:bg-gray-200"}`}
           >
             {tab.label}
           </button>

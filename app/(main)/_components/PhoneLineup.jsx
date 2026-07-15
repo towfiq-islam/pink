@@ -35,9 +35,11 @@ export function PhoneLineup() {
   return (
     <section className="container">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-3xl font-semibold text-gray-900">Phone</h2>
+        <h2 className="text-2xl xl:text-3xl font-semibold text-gray-900">
+          Phone
+        </h2>
 
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-3 xl:mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PHONES?.map((product, i) => (
             <Product key={i} product={product} />
           ))}

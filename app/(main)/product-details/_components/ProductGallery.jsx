@@ -26,7 +26,7 @@ const ProductGallery = () => {
         </span>
       </nav>
 
-      <h1 className="text-3xl font-semibold mb-6">iPhone 17 Pro Max</h1>
+      <h1 className="text-2xl xl:text-3xl font-semibold mb-6">iPhone 17 Pro Max</h1>
 
       <div className="rounded-2xl bg-gray-50 flex items-center justify-center h-96 mb-4 overflow-hidden relative">
         <Image

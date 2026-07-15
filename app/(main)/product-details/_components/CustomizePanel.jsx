@@ -58,7 +58,7 @@ export function CustomizePanel() {
           <button
             key={c.id}
             onClick={() => setSelectedColor(c.id)}
-            className={`rounded-xl border cursor-pointer shadow px-5 py-7 flex flex-col items-center gap-3 ${
+            className={`rounded-xl border cursor-pointer shadow px-4 xl:px-5 py-7 flex flex-col items-center gap-3 ${
               selectedColor === c.id
                 ? "border-2 border-gray-900"
                 : "border-gray-100"

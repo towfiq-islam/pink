@@ -7,7 +7,7 @@ const Product = ({ product }) => {
   return (
     <Link
       href={`/product-details/1`}
-      className="rounded-2xl border border-gray-100 shadow p-5 flex gap-5 items-center group hover:bg-pink-50/30 hover:border-primary-pink hover:scale-[1.02] duration-300 transition-all"
+      className="rounded-2xl border border-gray-100 shadow p-4.5 2xl:p-5 flex gap-5 items-center group hover:bg-pink-50/30 hover:border-primary-pink hover:scale-[1.02] duration-300 transition-all"
     >
       {/* Left */}
       <figure className="shrink-0">
@@ -32,7 +32,7 @@ const Product = ({ product }) => {
           ))}
         </div>
 
-        <p className="mt-3 font-semibold text-gray-700">
+        <p className="mt-3 text-sm 2xl:text-base font-semibold text-gray-700">
           Starting at ${product.priceFull} ${product.priceMonthly}/month for 24
           months
         </p>

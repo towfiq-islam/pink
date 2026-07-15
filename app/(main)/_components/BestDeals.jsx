@@ -26,20 +26,20 @@ const DEALS = [
 
 export function BestDeals() {
   return (
-    <section className="container py-14">
+    <section className="container py-10 xl:py-14">
       <div className="mx-auto max-w-6xl ">
-        <h2 className="text-3xl font-semibold text-gray-900">
+        <h2 className="text-2xl xl:text-3xl font-semibold text-gray-900">
           Shop our best deals
         </h2>
 
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-3 xl:mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {DEALS.map((deal, i) => (
             <div
               key={i}
               className="rounded-2xl border border-gray-100 duration-300 transition hover:border-primary-pink/30 hover:bg-pink-50/20 shadow p-5"
             >
               <p className="font-semibold text-gray-700">{deal?.brand}</p>
-              <h3 className="mt-2 text-2xl font-semibold leading-snug text-gray-800">
+              <h3 className="mt-2 text-xl xl:text-2xl font-semibold leading-snug text-gray-800">
                 {deal?.title}
               </h3>
               <p className="mt-5 text-[15px] leading-relaxed text-gray-500">
