@@ -160,11 +160,11 @@ function OverviewTab() {
 function SpecsTab() {
   return (
     <div>
-      <div className="grid md:grid-cols-3 gap-5 mb-10">
+      <div className="grid md:grid-cols-3 gap-3 md:gap-5 mb-5 md:mb-10">
         {HIGHLIGHT_CARDS.map(({ icon, title, desc }) => (
           <div
             key={title}
-            className="rounded-xl border text-center border-gray-100 shadow px-6 py-7"
+            className="rounded-xl border text-center border-gray-100 shadow p-4 md:px-6 md:py-7"
           >
             <figure className="w-10 h-10 mx-auto rounded-full flex items-center justify-center mb-3">
               <Image

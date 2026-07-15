@@ -49,7 +49,7 @@ export function CustomizePanel() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-3">Customize your device</h2>
+      <h2 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Customize your device</h2>
       <hr className="border-gray-200 mb-5" />
 
       <p className="font-semibold mb-3">Color</p>
@@ -58,17 +58,17 @@ export function CustomizePanel() {
           <button
             key={c.id}
             onClick={() => setSelectedColor(c.id)}
-            className={`rounded-xl border cursor-pointer shadow px-4 xl:px-5 py-7 flex flex-col items-center gap-3 ${
+            className={`rounded-xl border cursor-pointer shadow p-3 md:p-4 xl:px-5 xl:py-7 flex flex-col items-center gap-3 ${
               selectedColor === c.id
                 ? "border-2 border-gray-900"
                 : "border-gray-100"
             }`}
           >
             <span
-              className="size-10 rounded-full border border-black/10"
+              className="size-8 md:size-10 rounded-full border border-black/10"
               style={{ backgroundColor: c.swatch }}
             />
-            <span className="text-sm font-semibold text-gray-600">
+            <span className="text-xs md:text-sm font-semibold text-gray-600">
               {c.name}
             </span>
           </button>

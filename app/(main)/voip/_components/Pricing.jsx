@@ -91,11 +91,11 @@ export default function Pricing() {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <section className="container mt-12 lg:mt-14 xl:mt-20">
-      <div className="flex justify-center gap-3 mb-10 xl:mb-12">
+    <section className="container mt-9 md:mt-12 lg:mt-14 xl:mt-20">
+      <div className="flex justify-center gap-3 mb-7 md:mb-10 xl:mb-12">
         <button
           onClick={() => setBilling("monthly")}
-          className={`rounded-xl px-10 cursor-pointer py-3 text-[15px] font-medium transition-colors duration-300 ${
+          className={`rounded-xl text-sm md:text-base px-5 md:px-10 cursor-pointer py-3 text-[15px] font-medium transition-colors duration-300 ${
             billing === "monthly"
               ? "bg-black text-white"
               : "text-black bg-gray-200"
@@ -106,7 +106,7 @@ export default function Pricing() {
 
         <button
           onClick={() => setBilling("yearly")}
-          className={`rounded-xl px-10 cursor-pointer py-3 text-[15px] font-medium transition-colors duration-300 ${
+          className={`rounded-xl text-sm md:text-base px-5 md:px-10 cursor-pointer py-3 text-[15px] font-medium transition-colors duration-300 ${
             billing === "yearly"
               ? "bg-black text-white"
               : "text-black bg-gray-200"
@@ -120,7 +120,7 @@ export default function Pricing() {
         {PLAN_DATA[billing].map(plan => (
           <div
             key={plan.name}
-            className="flex-1 rounded-2xl p-6 flex flex-col border border-gray-100 shadow hover:bg-pink-50/20 group hover:border-primary-pink duration-500 transition-all hover:scale-[1.02]"
+            className="flex-1 rounded-2xl p-4 md:p-6 flex flex-col border border-gray-100 shadow hover:bg-pink-50/20 group hover:border-primary-pink duration-500 transition-all hover:scale-[1.02]"
           >
             <div className="text-center border-b border-gray-300 pb-4 mb-4">
               <p className="text-xl font-semibold text-gray-800">{plan.name}</p>

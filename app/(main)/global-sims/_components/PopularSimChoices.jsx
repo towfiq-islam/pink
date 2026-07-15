@@ -33,16 +33,16 @@ export function PopularSimChoices() {
   const [query, setQuery] = useState("");
 
   return (
-    <section className="container pt-10 lg:pt-12 xl:pt-16 text-center">
+    <section className="container pt-7 md:pt-10 lg:pt-12 xl:pt-16 text-center">
       <p className="font-semibold mb-2 text-primary-pink">Global Sims</p>
-      <h2 className="text-2xl lg:text-3xl font-semibold mb-2">
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2">
         Popular Global Sim Choices
       </h2>
-      <p className="text-gray-400 font-medium mb-5 lg:mb-8">
+      <p className="text-gray-400 text-sm md:text-base font-medium mb-5 lg:mb-8">
         Choose the best ones and get connected throughout your trip
       </p>
 
-      <div className="flex justify-center mb-7 lg:mb-12">
+      <div className="flex justify-center mb-5 md:mb-7 lg:mb-12">
         <div className="flex items-center gap-2 border border-gray-200 rounded-full pl-4 pr-1.5 py-1.5 w-full max-w-sm">
           <FiMapPin className="text-gray-400 shrink-0" size={16} />
           <span className="text-gray-200">|</span>
@@ -58,12 +58,12 @@ export function PopularSimChoices() {
         </div>
       </div>
 
-      <div className="inline-flex justify-center gap-5 xl:gap-7 rounded-2xl bg-gray-50 p-3 mb-10">
+      <div className="inline-flex justify-center gap-4 md:gap-5 xl:gap-7 rounded-2xl bg-gray-50 p-3 mb-8 md:mb-10">
         {TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-7 xl:px-10 py-2 xl:py-3 cursor-pointer rounded-xl font-medium duration-300 transition-colors ${activeTab === tab.id ? "text-white bg-primary-pink" : "text-gray-500  hover:bg-gray-200"}`}
+            className={`px-4 text-sm md:text-base md:px-7 xl:px-10 py-2 xl:py-3 cursor-pointer rounded-xl font-medium duration-300 transition-colors ${activeTab === tab.id ? "text-white bg-primary-pink" : "text-gray-500  hover:bg-gray-200"}`}
           >
             {tab.label}
           </button>

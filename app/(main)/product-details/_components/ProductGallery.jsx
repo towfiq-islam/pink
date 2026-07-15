@@ -16,7 +16,7 @@ const ProductGallery = () => {
 
   return (
     <div>
-      <nav className="text-sm text-gray-400 font-medium mb-3 flex items-center gap-1">
+      <nav className="text-sm text-gray-400 font-medium mb-2 md:mb-3 flex items-center gap-1">
         <span>Phones</span>
         <span>/</span>
         <span>Apple</span>
@@ -26,9 +26,9 @@ const ProductGallery = () => {
         </span>
       </nav>
 
-      <h1 className="text-xl lg:text-2xl xl:text-3xl font-semibold mb-4 lg:mb-6">iPhone 17 Pro Max</h1>
+      <h1 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-4 lg:mb-6">iPhone 17 Pro Max</h1>
 
-      <div className="rounded-2xl bg-gray-50 flex items-center justify-center h-96 mb-4 overflow-hidden relative">
+      <div className="rounded-2xl bg-gray-50 flex items-center justify-center h-75 md:h-96 mb-4 overflow-hidden relative">
         <Image
           key={activeImage.id}
           src={activeImage?.src}
@@ -43,7 +43,7 @@ const ProductGallery = () => {
           <button
             key={t.id}
             onClick={() => setSelectedThumb(t.id)}
-            className={`h-28 cursor-pointer relative rounded-xl border overflow-hidden transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 ${
+            className={`h-20 md:h-28 cursor-pointer relative rounded-xl border overflow-hidden transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 ${
               selectedThumb === t.id
                 ? "border-2 shadow-sm border-primary-pink"
                 : "border-gray-200"

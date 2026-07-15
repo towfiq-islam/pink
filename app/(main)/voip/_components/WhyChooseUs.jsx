@@ -29,12 +29,12 @@ const REASONS = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="container mt-14 xl:mt-20 mb-16 xl:mb-22">
-      <h2 className="text-center text-2xl xl:text-3xl font-semibold mb-8">
+    <section className="container mt-8 md:mt-14 xl:mt-20 mb-10 md:mb-16 xl:mb-22">
+      <h2 className="text-center text-xl md:text-2xl xl:text-3xl font-semibold mb-4 md:mb-8">
         Why Customers love our VoIP
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-4 gap-4">
         {REASONS?.map(({ icon, title, desc }) => (
           <div
             key={title}
