@@ -52,7 +52,7 @@ body {
 }
 
 .primary_btn {
-  @apply rounded-2xl bg-primary-pink px-5 2xl:px-7 cursor-pointer text-sm md:text-base py-2.5 2xl:py-3 font-medium text-white transition-all duration-300;
+  @apply rounded-2xl bg-primary-pink px-5 2xl:px-7 py-2.5 2xl:py-3 cursor-pointer text-sm md:text-base font-medium text-white transition-all duration-300;
 }
 
 .secondary_btn {

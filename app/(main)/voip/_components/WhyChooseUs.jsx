@@ -2,7 +2,7 @@ import p1 from "@/assets/p1.png";
 import p2 from "@/assets/p2.png";
 import p3 from "@/assets/p3.png";
 import p4 from "@/assets/p4.png";
-import Image from "next/image";
+import ReasonCard from "@/components/common/ReasonCard";
 
 const REASONS = [
   {
@@ -35,25 +35,8 @@ export default function WhyChooseUs() {
       </h2>
 
       <div className="grid md:grid-cols-4 gap-4">
-        {REASONS?.map(({ icon, title, desc }) => (
-          <div
-            key={title}
-            className="rounded-xl overflow-hidden border border-gray-100 p-2.5 bg-[#6A6A6A]/5 group duration-300 transition-all"
-          >
-            <figure className="h-50 xl:h-58 2xl:h-64 flex items-center justify-center relative rounded-lg overflow-hidden">
-              <Image
-                src={icon}
-                alt="thumbnail"
-                fill
-                className="w-full h-full object-cover rounded-lg group-hover:scale-[1.05] duration-500 transition-transform"
-              />
-            </figure>
-
-            <div className="mt-3 px-1">
-              <p className="font-semibold">{title}</p>
-              <p className="text-[15px] text-gray-500 mt-1">{desc}</p>
-            </div>
-          </div>
+        {REASONS?.map(reason => (
+          <ReasonCard key={reason?.title} reason={reason} />
         ))}
       </div>
     </section>
