@@ -94,14 +94,14 @@ export default function CompatibilityModal() {
       </h2>
 
       {/* Body (scrollable) */}
-      <div className="overflow-y-auto space-y-10">
-        <div className="space-y-2.5 text-sm text-gray-500 font-medium">
-          <p className="text-[15px]">
+      <div className="overflow-y-auto space-y-5 md:space-y-10">
+        <div className="space-y-2.5 text-[13px] md:text-sm text-gray-500 font-medium">
+          <p className="text-sm md:text-[15px]">
             To use an Pink Mobile eSIM, a device must meet the following
             conditions:
           </p>
 
-          <ul className="list-disc list-inside pl-5 space-y-1">
+          <ul className="list-disc list-inside pl-3 md:pl-5 md:space-y-1">
             <li>The device supports eSIMs.</li>
             <li>The device is not carrier or network-locked.</li>
             <li>The device is not jailbroken (iOS) or rooted (Android).</li>
@@ -146,7 +146,7 @@ export default function CompatibilityModal() {
           </div>
 
           {/* Search */}
-          <div className="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-2.5 my-6">
+          <div className="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-2.5 my-4 md:my-6">
             <FiSearch size={18} className="text-gray-400 shrink-0" />
             <input
               type="text"
@@ -158,7 +158,7 @@ export default function CompatibilityModal() {
           </div>
 
           {/* Device list */}
-          <div className="max-h-64 overflow-y-auto pr-1 space-y-4">
+          <div className="max-h-64 overflow-y-auto pr-1 space-y-3 md:space-y-4">
             {Object.keys(filteredGroups).length === 0 ? (
               <p className="text-sm text-gray-400 py-6 text-center">
                 No devices found.
@@ -166,7 +166,7 @@ export default function CompatibilityModal() {
             ) : (
               Object.entries(filteredGroups).map(([brand, devices]) => (
                 <div key={brand}>
-                  <p className="text-sm font-semibold text-gray-900 mb-2">
+                  <p className="text-[13px] md:text-sm font-semibold text-gray-900 mb-2">
                     {brand}
                   </p>
                   <ul className="space-y-2">
