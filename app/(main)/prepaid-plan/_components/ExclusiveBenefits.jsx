@@ -1,10 +1,10 @@
+import ReasonCard from "@/components/common/ReasonCard";
+import React from "react";
 import p1 from "@/assets/p1.png";
 import p2 from "@/assets/p2.png";
 import p3 from "@/assets/p3.png";
 import p4 from "@/assets/p4.png";
-import ReasonCard from "@/components/common/ReasonCard";
 import SectionTitle from "@/components/common/SectionTitle";
-
 const REASONS = [
   {
     icon: p1,
@@ -28,16 +28,22 @@ const REASONS = [
   },
 ];
 
-export default function WhyChooseUs() {
+const ExclusiveBenefits = () => {
   return (
-    <section className="container mt-8 md:mt-14 xl:mt-20 mb-10 md:mb-16 xl:mb-22">
-      <SectionTitle title="Why Customers love our VoIP" />
+    <div>
+      <SectionTitle
+        title="Exclusive benefits. Unforgettable experiences."
+        description="Discover premium advantages and curated experiences that reward your
+        loyalty every step of the way."
+      />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {REASONS?.map(reason => (
           <ReasonCard key={reason?.title} reason={reason} />
         ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default ExclusiveBenefits;

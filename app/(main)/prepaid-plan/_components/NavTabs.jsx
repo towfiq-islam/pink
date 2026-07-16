@@ -1,3 +1,4 @@
+import SectionTitle from "@/components/common/SectionTitle";
 import Link from "next/link";
 import { FiSmartphone, FiRepeat, FiGift } from "react-icons/fi";
 const NAV_TABS = [
@@ -14,15 +15,12 @@ const NAV_TABS = [
 export function NavTabs() {
   return (
     <div>
-      <h1 className="text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-900 mb-3 xl:mb-5">
-        Get more with our new prepaid phone plans.
-      </h1>
-
-      <p className="text-center text-gray-500 text-sm md:text-base xl:text-lg font-medium max-w-5xl mx-auto mb-8 lg:mb-12">
-        Enjoy greater flexibility, faster speeds, and affordable pricing with
+      <SectionTitle
+        title=" Get more with our new prepaid phone plans."
+        description=" Enjoy greater flexibility, faster speeds, and affordable pricing with
         prepaid plans designed to keep you connected without long-term
-        commitments.
-      </p>
+        commitments."
+      />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5">
         {NAV_TABS.map(tab => {
