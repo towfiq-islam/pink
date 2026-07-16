@@ -1,9 +1,17 @@
 import Image from "next/image";
 
-export function SplitBanner({ title, description, img }) {
+export function SplitBanner({
+  title,
+  description,
+  img,
+  btn_text,
+  direction = "left",
+}) {
   return (
-    <div className="grid sm:grid-cols-2 gap-7 lg:gap-10 items-center bg-[#6A6A6A]/4 rounded-2xl p-4">
-      <figure className="w-full h-92 relative">
+    <div
+      className={`flex gap-7 lg:gap-10 items-center bg-[#6A6A6A]/4 rounded-2xl p-4 ${direction === "left" ? "flex-row" : "flex-row-reverse"}`}
+    >
+      <figure className="w-full h-92 relative flex-1">
         <Image
           src={img}
           alt="banner"
@@ -12,7 +20,9 @@ export function SplitBanner({ title, description, img }) {
         />
       </figure>
 
-      <div className="sm:pr-10">
+      <div
+        className={`flex-1 ${direction === "left" ? "sm:pr-10" : "sm:ps-5"}`}
+      >
         <h3 className="text-xl lg:text-2xl xl:text-4xl font-semibold xl:leading-11 text-gray-800 mb-3">
           {title}
         </h3>
@@ -20,7 +30,8 @@ export function SplitBanner({ title, description, img }) {
         <p className="text-gray-500 font-medium text-[15px] lg:text-base mb-5">
           {description}
         </p>
-        <button className="primary_btn">Check out plans</button>
+
+        <button className="primary_btn">{btn_text}</button>
       </div>
     </div>
   );

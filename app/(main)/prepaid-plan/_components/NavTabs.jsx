@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/common/SectionTitle";
 import Link from "next/link";
 import { FiSmartphone, FiRepeat, FiGift } from "react-icons/fi";
+import { MdSpeakerPhone } from "react-icons/md";
 const NAV_TABS = [
   { label: "Prepaid Plans", icon: FiSmartphone, path: "/prepaid-phone-plans" },
   {
@@ -8,7 +9,7 @@ const NAV_TABS = [
     icon: FiRepeat,
     path: "/own-phone",
   },
-  { label: "Prepaid Phone", icon: FiSmartphone, path: "/prepaid-phone" },
+  { label: "Prepaid Phone", icon: MdSpeakerPhone, path: "/prepaid-phone" },
   { label: "Benefits", icon: FiGift, path: "/benefits" },
 ];
 

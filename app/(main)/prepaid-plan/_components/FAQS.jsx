@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 const faq = [
@@ -9,14 +10,14 @@ const faq = [
   "Who is eligible for Caller ID?",
 ];
 
-export function FAQS() {
+export function FAQS({ title }) {
   const [openIndex, setOpenIndex] = useState(null);
   const toggle = i => setOpenIndex(prev => (prev === i ? null : i));
 
   return (
     <div className="container bg-[#6A6A6A]/4 rounded-2xl p-6 sm:p-8">
       <h2 className="text-center text-2xl font-semibold text-gray-900 uppercase mb-5 md:mb-7">
-        FAQs
+        {title}
       </h2>
 
       <div className="grid sm:grid-cols-2 gap-3 md:gap-4 items-start">

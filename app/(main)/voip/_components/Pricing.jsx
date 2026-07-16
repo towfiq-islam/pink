@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { BroadbandFactsCard } from "./BroadbandFactsCard";
 const PLAN_DATA = {
   monthly: [
     {
@@ -86,12 +87,40 @@ const PLAN_DATA = {
     },
   ],
 };
+const PLANS = [
+  {
+    id: "super-mobile",
+    name: "Super Mobile",
+    price: "$10",
+    dataLabel: "2GB high-speed data, then unlimited at 128kbps",
+    identifier: "M0006945950PRI0000000030",
+  },
+  {
+    id: "unlimited-monthly",
+    name: "Unlimited Monthly",
+    description: "Unlimited Mobile Internet with up to 5GB of 5G / 4G LTE Data",
+    price: "$20",
+    dataLabel: "5GB high-speed data, then unlimited at 128kbps",
+    identifier: "M0006945950PRI0000000033",
+  },
+  {
+    id: "unlimited-plus-monthly",
+    name: "Unlimited Plus Monthly",
+    description:
+      "Unlimited Mobile Internet with up to 10GB of 5G / 4G LTE Data",
+    price: "$30",
+    dataLabel: "10GB high-speed data, then unlimited at 128kbps",
+    identifier: "M0006945950PRI0000000029",
+  },
+];
 
-export default function Pricing() {
+export default function Pricing({ facts }) {
   const [billing, setBilling] = useState("monthly");
+  const [openId, setOpenId] = useState(null);
 
   return (
-    <section className="container mt-9 md:mt-12 lg:mt-14 xl:mt-20">
+    <div>
+      {/* Tabs */}
       <div className="flex justify-center gap-3 mb-7 md:mb-10 xl:mb-12">
         <button
           onClick={() => setBilling("monthly")}
@@ -116,6 +145,7 @@ export default function Pricing() {
         </button>
       </div>
 
+      {/* Plan cards */}
       <div className="flex flex-col lg:flex-row gap-5 lg:gap-6">
         {PLAN_DATA[billing].map(plan => (
           <div
@@ -144,6 +174,20 @@ export default function Pricing() {
           </div>
         ))}
       </div>
-    </section>
+
+      {/* Facts */}
+      {facts && (
+        <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 items-start">
+          {PLANS.map(plan => (
+            <BroadbandFactsCard
+              key={plan.id}
+              plan={plan}
+              expanded={openId === plan.id}
+              onToggle={() => setOpenId(openId === plan.id ? null : plan.id)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

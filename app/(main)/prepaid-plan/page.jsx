@@ -29,12 +29,13 @@ export default function PrepaidPlansPage() {
         description="Get talk, text, and 5G data to share every moment of your trip across
           the U.S., Mexico and Canada. You're covered with T-Mobile."
         img={b2}
+        btn_text="Check out plans"
       />
       <ProductSpotlight />
       <TwoColumnPromo />
       <ExclusiveBenefits />
       <Coverage />
-      <FAQS />
+      <FAQS title="FAQs" />
       <ReadyToSwitch />
     </section>
   );

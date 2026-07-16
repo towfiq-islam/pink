@@ -22,7 +22,10 @@ const page = () => {
           <button className="secondary_btn">View Plans</button>
         </Banner>
       </div>
-      <Pricing />
+
+      <div className="container mt-9 md:mt-12 lg:mt-14 xl:mt-20">
+        <Pricing />
+      </div>
       <WhyChooseUs />
     </>
   );
