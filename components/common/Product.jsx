@@ -3,7 +3,13 @@ import { TbShoppingBag } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
 
-const Product = ({ product }) => {
+const Product = ({ product, isCompare, isSelected, onToggleCompare }) => {
+  const handleCompareClick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    onToggleCompare?.(product);
+  };
+
   return (
     <Link
       href={`/product-details/1`}
@@ -40,16 +46,29 @@ const Product = ({ product }) => {
         <p className="mt-1 text-sm text-gray-400">$0.00 down + tax due today</p>
         <p className="text-xs text-gray-400">Full price: ${product.total}</p>
 
-        <div className="mt-5 flex items-center gap-3">
-          <button className="flex-1 primary_btn !py-2.5">Shop Now</button>
-
+        {isCompare ? (
           <button
-            aria-label="Add to bag"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-600 hover:border-pink-300 hover:text-white hover:bg-primary-pink text-xl cursor-pointer bg-gray-200"
+            onClick={handleCompareClick}
+            className={`mt-5 w-full rounded-full py-2.5 text-sm font-semibold cursor-pointer transition-colors duration-300 ${
+              isSelected
+                ? "bg-primary-pink text-white"
+                : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+            }`}
           >
-            <TbShoppingBag />
+            Compare
           </button>
-        </div>
+        ) : (
+          <div className="mt-5 flex items-center gap-3">
+            <button className="flex-1 primary_btn !py-2.5">Shop Now</button>
+
+            <button
+              aria-label="Add to bag"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-600 hover:border-pink-300 hover:text-white hover:bg-primary-pink text-xl cursor-pointer bg-gray-200"
+            >
+              <TbShoppingBag />
+            </button>
+          </div>
+        )}
       </div>
     </Link>
   );

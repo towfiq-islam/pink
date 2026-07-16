@@ -27,7 +27,7 @@ const page = () => {
         <button className="primary_btn md:!px-10">Get Full Items</button>
       </Banner>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 px-20 gap-3 lg:gap-5 -mt-5">
+      <div className="grid grid-cols-2 lg:grid-cols-3 lg:px-20 gap-3 lg:gap-5 -mt-5">
         {NAV_TABS.map(tab => {
           const Icon = tab.icon;
 
@@ -52,12 +52,14 @@ const page = () => {
         description="Add calling and texting to Mexico and Canada to your plan for only $5/mo. and mobile lines in 30+ countries."
         img={b6}
         btn_text="Get full terms"
+        btn_url="/"
       />
       <SplitBanner
         title="North America Stateside International calling."
         description="For an extra $15/mo., make unlimited calls from the US, Mexico, or Canada to landlines in 70+ countries and mobile lines in 30+ countries."
         img={b7}
         btn_text="Get full terms"
+        btn_url="/"
         direction="right"
       />
     </section>

@@ -30,6 +30,7 @@ export default function PrepaidPlansPage() {
           the U.S., Mexico and Canada. You're covered with T-Mobile."
         img={b2}
         btn_text="Check out plans"
+        btn_url="/checkout-plans"
       />
       <ProductSpotlight />
       <TwoColumnPromo />

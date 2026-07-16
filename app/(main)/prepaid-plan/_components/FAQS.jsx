@@ -16,7 +16,7 @@ export function FAQS({ title }) {
 
   return (
     <div className="container bg-[#6A6A6A]/4 rounded-2xl p-6 sm:p-8">
-      <h2 className="text-center text-2xl font-semibold text-gray-900 uppercase mb-5 md:mb-7">
+      <h2 className="text-center text-lg md:text-2xl font-semibold text-gray-900 uppercase mb-3 md:mb-5 lg:mb-7">
         {title}
       </h2>
 

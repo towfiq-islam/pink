@@ -250,7 +250,7 @@ const ShopPage = () => {
               ))
             ) : products?.length > 0 ? (
               products.map(product => (
-                <Product key={product.id} product={product} isSmall={true} />
+                <Product key={product.id} product={product} isCompare={false} />
               ))
             ) : (
               <div className="col-span-full flex flex-col gap-2 justify-center md:gap-3 xl:gap-4 items-center py-10">
