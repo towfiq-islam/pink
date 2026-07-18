@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-const ReasonCard = ({ reason }) => {
+const ReasonCard = ({ reason, isBigger }) => {
   return (
     <div className="rounded-xl overflow-hidden border border-gray-100 p-2.5 bg-[#6A6A6A]/5 group duration-300 transition-all">
-      <figure className="h-50 xl:h-58 2xl:h-64 flex items-center justify-center relative rounded-lg overflow-hidden">
+      <figure
+        className={`flex items-center justify-center relative rounded-lg overflow-hidden ${isBigger ? "h-50 xl:h-62 2xl:h-80" : "h-50 xl:h-58 2xl:h-64"}`}
+      >
         <Image
           src={reason?.icon}
           alt="thumbnail"
@@ -14,7 +16,9 @@ const ReasonCard = ({ reason }) => {
       </figure>
 
       <div className="mt-3 px-1">
-        <p className="font-semibold">{reason?.title}</p>
+        <p className={`font-semibold ${isBigger ? "md:text-lg" : "text-base"}`}>
+          {reason?.title}
+        </p>
         <p className="text-[15px] text-gray-500 mt-1">{reason?.desc}</p>
       </div>
     </div>
