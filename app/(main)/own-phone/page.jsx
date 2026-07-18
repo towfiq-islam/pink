@@ -77,10 +77,16 @@ const page = () => {
       </Banner>
 
       <div>
-        <SectionTitle
-          title="Have an eSIM? Activate right from your phone."
-          description="Our app makes it easy. Check it Out"
-        />
+        <SectionTitle title="Have an eSIM? Activate right from your phone." />
+        <p className="text-center text-gray-500 text-sm md:text-base xl:text-lg font-medium max-w-5xl mx-auto -mt-2 md:-mt-5 mb-5 md:mb-7">
+          Our app makes it easy.{" "}
+          <Link
+            href="/check-it-out"
+            className="text-primary-pink font-medium underline"
+          >
+            Check it Out
+          </Link>
+        </p>
         <div className="grid md:grid-cols-2 gap-5 xl:gap-7">
           {PROMO_CARDS?.map(reason => (
             <ReasonCard key={reason?.title} reason={reason} isBigger={true} />
