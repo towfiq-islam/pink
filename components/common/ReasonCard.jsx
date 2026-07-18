@@ -16,7 +16,7 @@ const ReasonCard = ({ reason, isBigger }) => {
       </figure>
 
       <div className="mt-3 px-1">
-        <p className={`font-semibold ${isBigger ? "md:text-lg" : "text-base"}`}>
+        <p className={`font-semibold ${isBigger ? "md:text-xl" : "text-base"}`}>
           {reason?.title}
         </p>
         <p className="text-[15px] text-gray-500 mt-1">{reason?.desc}</p>
