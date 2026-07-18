@@ -6,13 +6,13 @@ const FilterItem = ({ title, children }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b last:border-b-0 border-gray-200 pb-4 md:pb-5 mb-4 last:pb-0 last:mb-0">
+    <div className="border-b last:border-b-0 border-gray-200 pb-4 2xl:pb-5 mb-4 last:pb-0 last:mb-0">
       {/* Header */}
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between w-full"
       >
-        <span className="font-semibold text-sm md:text-base xl:text-lg text-gray-700">
+        <span className="font-semibold text-sm md:text-base 2xl:text-lg text-gray-700">
           {title}
         </span>
         <FiChevronDown

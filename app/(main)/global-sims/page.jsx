@@ -1,10 +1,12 @@
-import React from 'react';
+import { HowEsimWorks } from "./_components/HowEsimWorks";
+import { PopularSimChoices } from "./_components/PopularSimChoices";
 
 const page = () => {
   return (
-    <div>
-      Global Sims
-    </div>
+    <>
+      <PopularSimChoices />
+      <HowEsimWorks />
+    </>
   );
 };
 
