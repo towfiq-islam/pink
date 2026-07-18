@@ -7,7 +7,7 @@ import SpecRow from "./_components/SpecRow";
 
 const MAX_COMPARE = 3;
 
-// TODO: replace with real data — e.g. useGetProductsByIdsQuery(ids) from shopApi
+// replace with real data — e.g. useGetProductsByIdsQuery(ids) from shopApi
 const MOCK_DEVICES = {
   1: {
     id: "1",
@@ -89,31 +89,29 @@ const ComparePage = () => {
     ),
   ];
 
+  // 100px label column, each device column flexes but never shrinks below 130px —
+  // below that the table scrolls horizontally instead of squishing.
+  const gridTemplate = `100px repeat(${columns.length}, minmax(130px, 1fr))`;
+
   return (
     <section className="container mb-10 md:mb-16">
-      <div className="max-w-350 mx-auto">
-        {/* Breadcrumb */}
-        <p className="text-xs text-gray-400 mt-4 mb-4">
-          <Link href="/business" className="hover:underline">
-            Business
-          </Link>{" "}
-          /{" "}
-          <Link href="/shop" className="hover:underline">
-            Device
-          </Link>{" "}
-          / <span className="text-primary-pink">Compare Devices</span>
-        </p>
+      {/* Breadcrumb */}
+      <p className="text-[13px] md:text-sm font-medium text-gray-400 mt-4 md:mt-6 mb-3 md:mb-4">
+        <Link href="/prepaid-phone" className="hover:underline">
+          Prepaid phone
+        </Link>{" "}
+        / <span className="text-primary-pink">Compare Devices</span>
+      </p>
 
-        <div className="rounded-2xl border border-gray-100 shadow-sm overflow-hidden bg-white">
+      <div className="rounded-2xl border border-gray-100 shadow-sm overflow-hidden bg-white">
+        <div className="overflow-x-auto">
           {/* Header row: Device label + device columns */}
           <div
             className="grid border-b border-gray-100"
-            style={{
-              gridTemplateColumns: `160px repeat(${columns.length}, 1fr)`,
-            }}
+            style={{ gridTemplateColumns: gridTemplate }}
           >
-            <div className="flex items-center px-4 py-5">
-              <h2 className="font-bold text-lg md:text-xl text-[#212B36]">
+            <div className="sticky left-0 z-10 flex items-center bg-white px-3 py-5 md:px-4">
+              <h2 className="font-bold text-base md:text-xl text-[#212B36]">
                 Device
               </h2>
             </div>
@@ -131,19 +129,10 @@ const ComparePage = () => {
             <SpecRow
               key={spec.key}
               label={spec.label}
-              columnCount={columns.length}
+              gridTemplate={gridTemplate}
               values={columns.map(device => device?.[spec.key])}
             />
           ))}
-        </div>
-
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={() => router.back()}
-            className="rounded-full bg-primary-pink text-white text-sm font-semibold px-10 py-2.5 cursor-pointer hover:opacity-90 transition-opacity"
-          >
-            Back
-          </button>
         </div>
       </div>
     </section>
