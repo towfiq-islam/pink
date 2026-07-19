@@ -143,7 +143,7 @@ const page = () => {
         description="New phone. More exclusive benefits. America's Best Network. Just make on-time payments for 12 months with T-Mobile Prepaid and pay SO down on select 5G phones when you move to T-Mobile."
         img={b6}
         btn_text="Check it out"
-        btn_url="/"
+        btn_url="/own-phone"
       />
       <ReadyToSwitch />
     </section>

@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: "Global Sims", path: "/global-sims" },
   { label: "VoIP", path: "/voip" },
   { label: "Shop", path: "/shop" },
-  { label: "Prepaid Plan", path: "/prepaid-plan" },
+  { label: "Prepaid Plan", path: "" },
 ];
 
 const PREPAID_SUBMENU = [

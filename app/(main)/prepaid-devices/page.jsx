@@ -108,7 +108,10 @@ const page = () => {
           title="Looking for a phone plan?"
           description="Find a prepaid plan that fits your needs"
         />
-        <Link href="/" className="primary_btn w-fit mx-auto block md:-mt-3">
+        <Link
+          href="/prepaid-phone-plans"
+          className="primary_btn w-fit mx-auto block md:-mt-3"
+        >
           Compare plans
         </Link>
       </div>
