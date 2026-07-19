@@ -1,4 +1,7 @@
 "use client";
+
+import Link from "next/link";
+
 const PLANS = [
   {
     id: "2gb",
@@ -73,7 +76,7 @@ function PlanCard({ plan, onViewDetails }) {
   );
 }
 
-export default function ViewPlans({ onViewDetails, onGetStarted }) {
+export default function ViewPlans({ onViewDetails, btn_url, btn_text }) {
   return (
     <div>
       <div className="grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2 xl:grid-cols-3 place-items-center">
@@ -83,13 +86,12 @@ export default function ViewPlans({ onViewDetails, onGetStarted }) {
       </div>
 
       <div className="mt-8 md:mt-14 flex justify-center">
-        <button
-          type="button"
-          onClick={onGetStarted}
-          className="w-full max-w-2xl rounded-2xl bg-gray-900 px-6 py-2.5 md:py-3.5 cursor-pointer font-semibold text-white transition-colors hover:bg-gray-800"
+        <Link
+          href={btn_url}
+          className="w-full max-w-2xl rounded-2xl text-center bg-gray-900 px-6 py-2.5 md:py-3.5 cursor-pointer font-semibold text-white transition-colors hover:bg-gray-800"
         >
-          Get Started
-        </button>
+          {btn_text}
+        </Link>
       </div>
     </div>
   );

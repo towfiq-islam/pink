@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAngleDown, FaBars } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 
@@ -13,9 +13,16 @@ const NAV_LINKS = [
   { label: "Prepaid Plan", path: "/prepaid-plan" },
 ];
 
+const PREPAID_SUBMENU = [
+  { label: "Prepaid Phone Plans", path: "/prepaid-plan" },
+  { label: "Prepaid Device Data Plans", path: "/prepaid-devices" },
+];
+
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setOpen] = useState(false);
+  const [isSubmenuOpen, setSubmenuOpen] = useState(false);
+  const closeTimeoutRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -27,6 +34,24 @@ const Navbar = () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
+
+  const handleSubmenuEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setSubmenuOpen(true);
+  };
+
+  const handleSubmenuLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => setSubmenuOpen(false), 120);
+  };
 
   return (
     <nav className="border-b border-gray-100 bg-white py-3 md:py-4 lg:py-4.5 sticky top-0 z-50">
@@ -41,7 +66,55 @@ const Navbar = () => {
         <nav className="hidden lg:flex items-center gap-12 text-gray-600">
           {NAV_LINKS?.map(link => {
             const isActive = link?.path === pathname;
-            const hasChevron = link?.label === "Prepaid Plan";
+            const hasSubmenu = link?.label === "Prepaid Plan";
+
+            if (hasSubmenu) {
+              return (
+                <div
+                  key={link?.label}
+                  className="relative"
+                  onMouseEnter={handleSubmenuEnter}
+                  onMouseLeave={handleSubmenuLeave}
+                >
+                  <Link
+                    href={hasSubmenu ? "" : link?.path}
+                    className={`flex items-center gap-1 font-semibold transition-colors hover:text-pink-600 ${
+                      isActive
+                        ? "font-semibold text-primary-pink"
+                        : "text-[#6A6A6A]"
+                    }`}
+                  >
+                    {link?.label}
+                    <FaAngleDown
+                      className={`transition-transform duration-200 ${
+                        isSubmenuOpen ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  </Link>
+
+                  {/* Popover */}
+                  <div
+                    className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 transition-all duration-200 ${
+                      isSubmenuOpen
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-1 pointer-events-none"
+                    }`}
+                  >
+                    <div className="w-56 rounded-xl border border-gray-100 bg-white p-2 shadow-lg">
+                      {PREPAID_SUBMENU.map(sub => (
+                        <Link
+                          key={sub.label}
+                          href={sub.path}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-[#6A6A6A] transition-colors hover:bg-pink-50 hover:text-primary-pink"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
 
             return (
               <Link
@@ -54,7 +127,6 @@ const Navbar = () => {
                 }`}
               >
                 {link?.label}
-                {/* {hasChevron && <FaAngleDown />} */}
               </Link>
             );
           })}
@@ -110,19 +182,36 @@ const Navbar = () => {
             const hasChevron = link?.label === "Prepaid Plan";
 
             return (
-              <Link
-                onClick={() => setOpen(false)}
-                key={link?.label}
-                href={link?.path}
-                className={`flex items-center gap-1 font-semibold transition-colors hover:text-pink-600 ${
-                  isActive
-                    ? "font-semibold text-primary-pink"
-                    : "text-[#6A6A6A]"
-                }`}
-              >
-                {link?.label}
-                {/* {hasChevron && <FaAngleDown />} */}
-              </Link>
+              <div key={link?.label}>
+                <Link
+                  onClick={() => setOpen(false)}
+                  href={link?.path}
+                  className={`flex items-center gap-1 font-semibold transition-colors hover:text-pink-600 ${
+                    isActive
+                      ? "font-semibold text-primary-pink"
+                      : "text-[#6A6A6A]"
+                  }`}
+                >
+                  {link?.label}
+                  {hasChevron && <FaAngleDown />}
+                </Link>
+
+                {/* Mobile: show submenu inline, no hover on touch devices */}
+                {hasChevron && (
+                  <div className="mt-3 ml-3 flex flex-col gap-3 border-l border-gray-100 pl-3">
+                    {PREPAID_SUBMENU.map(sub => (
+                      <Link
+                        key={sub.label}
+                        onClick={() => setOpen(false)}
+                        href={sub.path}
+                        className="text-sm font-medium text-[#6A6A6A] transition-colors hover:text-primary-pink"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>
