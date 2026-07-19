@@ -1,5 +1,6 @@
 import Image from "next/image";
 import b3 from "@/assets/b3.png";
+import Link from "next/link";
 
 export function ProductSpotlight() {
   return (
@@ -25,7 +26,9 @@ export function ProductSpotlight() {
           videos, gaming at peak performance, or staying productive throughout
           the day, the iPhone 17 Pro is engineered to exceed every expectation.
         </p>
-        <button className="primary_btn">Ship in store</button>
+        <Link href={`/product-details/1`} className="primary_btn">
+          Shop in store
+        </Link>
       </div>
     </div>
   );

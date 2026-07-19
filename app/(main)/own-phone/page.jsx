@@ -73,7 +73,9 @@ const page = () => {
         title="Unlimited Monthly $42/mo. with Autopay"
         description="Unlimited talk, text, and 5G data backed by our 5-year price guarantee. Plus, get unlimited mobile hotspot with 3G speeds."
       >
-        <button className="primary_btn md:!px-10">See plan details</button>
+        <Link href="/prepaid-phone-plans" className="primary_btn md:!px-10">
+          See plan details
+        </Link>
       </Banner>
 
       <div>

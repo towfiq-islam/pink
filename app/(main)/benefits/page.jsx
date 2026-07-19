@@ -82,10 +82,7 @@ const page = () => {
         bannerBg={bannerBg}
         title="It’s better over here."
         description="With T-Mobile Prepaid, you’re more than a customer—you’re a member with Magenta Status from day one. Experience amazing value, next-level connectivity, and access to exclusive benefits you can’t get anywhere else. All with a lifetime of savings. Just download the T-Life app."
-      >
-        <button className="primary_btn !px-10">Play store</button>
-        <button className="secondary_btn">App store</button>
-      </Banner>
+      />
 
       <div>
         <SectionTitle title="Benefits from departure to arrival." />
