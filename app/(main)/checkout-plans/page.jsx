@@ -29,12 +29,7 @@ const page = () => {
         bannerBg={connect}
         title="Connect in minutes in the eSIM app."
         description="Get the T-Mobile Prepaid eSIM app, purchase your U.S. Pass eSIM plan, and activate your phone. Activation happens instantly, so only purchase when you’ve landed."
-      >
-        <div className="flex gap-3 items-center">
-          <button className="primary_btn md:!px-10">Play store</button>
-          <button className="secondary_btn">App Store</button>
-        </div>
-      </Banner>
+      />
       <FAQS title="Got questions?" />
     </section>
   );

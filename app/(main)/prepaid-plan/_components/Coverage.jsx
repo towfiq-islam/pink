@@ -15,10 +15,10 @@ const Coverage = () => {
           on the T-Mobile nationwide network.
         </p>
 
-        <button className="inline-flex items-center gap-2 border border-white/80 px-5 py-3 cursor-pointer rounded-full text-white text-sm font-semibold hover:text-primary-pink transition duration-300 hover:border-primary-pink">
+        {/* <button className="inline-flex items-center gap-2 border border-white/80 px-5 py-3 cursor-pointer rounded-full text-white text-sm font-semibold hover:text-primary-pink transition duration-300 hover:border-primary-pink">
           Check coverage
           <FiArrowRight size={16} />
-        </button>
+        </button> */}
       </div>
 
       <div className="relative h-48 sm:h-64 opacity-80">

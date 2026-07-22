@@ -51,7 +51,7 @@ const page = () => {
         title="5G data plans for all your devices."
         description="Stay connected with prepaid data on your tablet and hotspot devices. No annual contracts. No credit checks."
       />
-      <ViewPlans />
+      <ViewPlans btn_url="/all-prepaid-data-plan" btn_text="Get Started" />
 
       <div>
         <SectionTitle title="Data rate plans come with great benefits." />
@@ -108,7 +108,10 @@ const page = () => {
           title="Looking for a phone plan?"
           description="Find a prepaid plan that fits your needs"
         />
-        <Link href="/" className="primary_btn w-fit mx-auto block md:-mt-3">
+        <Link
+          href="/prepaid-phone-plans"
+          className="primary_btn w-fit mx-auto block md:-mt-3"
+        >
           Compare plans
         </Link>
       </div>

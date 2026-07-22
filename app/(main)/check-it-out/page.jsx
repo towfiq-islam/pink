@@ -13,10 +13,7 @@ const page = () => {
         bannerBg={bannerBg}
         title="Connect to the America's Best Network in the U.S. while you visit."
         description="T-Mobile has the best Mobile Network in the U.S., according to Ookla Speed test. It's easy. Just download the T-Mobile Prepaid eSIM app to get started."
-      >
-        <button className="primary_btn !px-10">Play store</button>
-        <button className="secondary_btn">App store</button>
-      </Banner>
+      />
 
       <div>
         <SectionTitle title="Get 30 days of Unlimited talk, text, and data starting at just $50." />

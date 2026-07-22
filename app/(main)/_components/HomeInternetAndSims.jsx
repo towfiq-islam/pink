@@ -1,5 +1,6 @@
 import Image from "next/image";
 import internet from "@/assets/internet.png";
+import Link from "next/link";
 
 export function HomeInternetAndSims() {
   return (
@@ -69,9 +70,12 @@ export function HomeInternetAndSims() {
             </div>
           </div>
 
-          <button className="mt-6 primary_btn w-fit mx-auto block">
+          <Link
+            href="/global-sims"
+            className="mt-6 primary_btn w-fit mx-auto block"
+          >
             See all plan
-          </button>
+          </Link>
         </div>
       </div>
     </section>

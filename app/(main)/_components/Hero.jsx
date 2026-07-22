@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero from "@/assets/hero.png";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -23,7 +24,9 @@ export function Hero() {
             number on an Experience More or Experience Beyond plan.
           </p>
 
-          <button className="mt-5 primary_btn">Shop Now</button>
+          <Link href={`/product-details/1`} className="mt-5 primary_btn block w-fit">
+            Shop Now
+          </Link>
         </div>
       </div>
     </section>

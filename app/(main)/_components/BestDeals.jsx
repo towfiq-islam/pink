@@ -2,6 +2,7 @@ import s1 from "@/assets/s1.png";
 import s2 from "@/assets/s2.png";
 import s3 from "@/assets/s3.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const DEALS = [
   {
@@ -34,8 +35,9 @@ export function BestDeals() {
 
         <div className="mt-3 xl:mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {DEALS.map((deal, i) => (
-            <div
+            <Link
               key={i}
+              href={`/product-details/1`}
               className="rounded-2xl border border-gray-100 duration-300 transition hover:border-primary-pink/30 hover:bg-pink-50/20 shadow p-4 md:p-5"
             >
               <p className="font-semibold text-gray-700">{deal?.brand}</p>
@@ -48,7 +50,7 @@ export function BestDeals() {
               <div className="mt-5 flex items-end justify-center gap-2">
                 <Image src={deal?.img} alt={deal?.brand} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
