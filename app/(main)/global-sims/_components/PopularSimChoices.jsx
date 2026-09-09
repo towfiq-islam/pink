@@ -91,7 +91,7 @@ export function PopularSimChoices({ initialData = null }) {
 
       {/* Search Bar */}
       <div className="flex justify-center mb-3 md:mb-4">
-        <div className="flex items-center gap-2 border border-gray-200 rounded-full pl-4 pr-1.5 py-1.5 w-full max-w-sm focus-within:border-primary-pink transition-colors">
+        <div className="flex items-center gap-2 border border-gray-200 rounded-full pl-4 pr-1.5 py-2 w-full max-w-sm focus-within:border-primary-pink transition-colors">
           <FiMapPin className="text-gray-400 shrink-0" size={16} />
           <span className="text-gray-200">|</span>
           <input
@@ -113,34 +113,8 @@ export function PopularSimChoices({ initialData = null }) {
               <FiX size={16} />
             </button>
           )}
-
-          <button
-            type="button"
-            className="w-8 h-8 rounded-full flex items-center justify-center text-white shrink-0 cursor-pointer bg-primary-pink hover:opacity-90 transition-opacity"
-            aria-label="Search"
-          >
-            <FiSearch size={14} />
-          </button>
         </div>
       </div>
-
-      {/* Active Filter Pill */}
-      {query.trim() && (
-        <div className="flex items-center justify-center gap-2 mb-6 animate-fadeIn">
-          <span className="text-xs md:text-sm text-gray-500">
-            Showing results for:{" "}
-            <span className="font-semibold text-gray-700">&ldquo;{query}&rdquo;</span>
-          </span>
-          <button
-            type="button"
-            onClick={handleResetFilter}
-            className="inline-flex items-center gap-1 text-xs font-semibold text-primary-pink hover:text-pink-700 bg-pink-50 hover:bg-pink-100 px-2.5 py-1 rounded-full transition-colors cursor-pointer border border-pink-200"
-          >
-            <FiX size={12} />
-            Reset filter
-          </button>
-        </div>
-      )}
 
       {/* Tabs */}
       <div className={`inline-flex justify-center gap-2 md:gap-5 xl:gap-7 rounded-2xl bg-gray-50 p-2 md:p-3 ${query.trim() ? "mb-6 md:mb-8" : "mt-2 mb-6 md:mb-8"}`}>
@@ -150,20 +124,18 @@ export function PopularSimChoices({ initialData = null }) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-3.5 md:px-7 xl:px-10 py-2 xl:py-3 cursor-pointer rounded-xl text-sm md:text-base font-medium duration-300 transition-all ${
-                activeTab === tab.id
-                  ? "text-white bg-primary-pink shadow-xs"
-                  : "text-gray-500 hover:bg-gray-200"
-              }`}
+              className={`px-3.5 md:px-7 xl:px-10 py-2 xl:py-3 cursor-pointer rounded-xl text-sm md:text-base font-medium duration-300 transition-all ${activeTab === tab.id
+                ? "text-white bg-primary-pink shadow-xs"
+                : "text-gray-500 hover:bg-gray-200"
+                }`}
             >
               <span>{tab.label}</span>
               {count > 0 && (
                 <span
-                  className={`ml-2 text-xs px-2 py-0.5 rounded-full ${
-                    activeTab === tab.id
-                      ? "bg-white/20 text-white"
-                      : "bg-gray-200 text-gray-600"
-                  }`}
+                  className={`ml-2 text-xs px-2 py-0.5 rounded-full ${activeTab === tab.id
+                    ? "bg-white/20 text-white"
+                    : "bg-gray-200 text-gray-600"
+                    }`}
                 >
                   {count}
                 </span>
@@ -179,22 +151,14 @@ export function PopularSimChoices({ initialData = null }) {
           <SimSkeleton count={8} />
         </div>
       ) : activeItems.length === 0 ? (
-        <div className="py-16 text-center text-gray-500 max-w-md mx-auto">
+        <div className="py-10 text-center text-gray-500 max-w-md mx-auto">
           <div className="size-12 rounded-full bg-pink-50 text-primary-pink flex items-center justify-center mx-auto mb-3">
             <FiSearch size={22} />
           </div>
-          <p className="text-lg font-semibold mb-1 text-gray-800">No destinations found</p>
-          <p className="text-sm text-gray-400 mb-5">
+          <p className="text-lg font-semibold mb-2 text-gray-800">No destinations found</p>
+          <p className="text-sm text-gray-400 font-medium mb-5">
             We couldn&apos;t find any SIM cards matching &ldquo;{query}&rdquo; in the {activeTab} section.
           </p>
-          <button
-            type="button"
-            onClick={handleResetFilter}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-pink text-white text-sm font-semibold hover:opacity-95 transition-all cursor-pointer shadow-xs"
-          >
-            <FiX size={15} />
-            <span>Reset search filter</span>
-          </button>
         </div>
       ) : (
         <>
