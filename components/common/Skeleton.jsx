@@ -34,4 +34,31 @@ export const ProductSkeleton = () => {
   );
 };
 
+export const SimSkeleton = ({ count = 1 }) => {
+  return (
+    <>
+      {Array.from({ length: count }).map((_, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-gray-100 shadow p-4 md:p-5 flex flex-col items-start text-left gap-3 animate-pulse bg-white"
+        >
+          {/* Flag / Icon circular skeleton */}
+          <div className="size-12 rounded-full bg-gray-200 shrink-0" />
+
+          <div className="w-full space-y-2.5">
+            {/* Country / Plan title */}
+            <div className="h-4 bg-gray-200 rounded w-3/4 md:mt-1" />
+
+            {/* Price badge */}
+            <div className="flex items-center gap-2 mt-2">
+              <div className="h-3.5 bg-gray-200 rounded w-8" />
+              <div className="h-6 bg-gray-200 rounded-full w-24" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
+
 export default ProductSkeleton;

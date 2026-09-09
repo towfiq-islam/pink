@@ -15,7 +15,7 @@ export function NetworkCard({ country, flagEmoji }) {
           <span>/</span>
           <span>Local</span>
           <span>/</span>
-          <span className="text-primary-pink font-medium">Bangladesh</span>
+          <span className="text-primary-pink font-medium">{country}</span>
         </nav>
 
         <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-3 md:mb-6">iPhone 17 Pro Max</h1>
