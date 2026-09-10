@@ -394,35 +394,81 @@ export default function CheckoutModal({
                 </p>
 
                 {/* Manual Activation Code */}
-                <div className="w-full bg-white p-3 rounded-xl border border-gray-200 text-left space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase text-gray-400">
-                      Manual Activation Code (LPA)
+                <div className="w-full bg-white p-3.5 rounded-xl border border-gray-200 text-left space-y-3">
+                  <div className="flex items-center justify-between pb-1 border-b border-gray-100">
+                    <span className="text-[11px] font-bold uppercase text-gray-500">
+                      Manual Activation Details (For iPhone / Android)
                     </span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleCopyLpa(
-                          orderResult.activationPackage?.lpaActivationCode
-                        )
-                      }
-                      className="text-xs font-semibold text-primary-pink flex items-center gap-1 cursor-pointer hover:underline"
-                    >
-                      {copiedLpa ? (
-                        <>
-                          <FiCheck size={12} /> Copied
-                        </>
-                      ) : (
-                        <>
-                          <FiCopy size={12} /> Copy
-                        </>
-                      )}
-                    </button>
                   </div>
-                  <p className="text-xs font-mono text-gray-800 break-all select-all bg-gray-50 p-2 rounded border border-gray-100">
-                    {orderResult.activationPackage?.lpaActivationCode}
-                  </p>
+
+                  <div className="space-y-2 text-xs">
+                    <div>
+                      <div className="flex justify-between items-center text-gray-500 text-[11px] mb-0.5">
+                        <span className="font-semibold">SM-DP+ Address:</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyLpa(orderResult.activationPackage?.smdpAddress)}
+                          className="text-primary-pink font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+                        >
+                          <FiCopy size={11} /> Copy
+                        </button>
+                      </div>
+                      <p className="font-mono text-gray-800 bg-gray-50 px-2.5 py-1.5 rounded border border-gray-100 select-all">
+                        {orderResult.activationPackage?.smdpAddress}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center text-gray-500 text-[11px] mb-0.5">
+                        <span className="font-semibold">Activation Code (Matching ID):</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyLpa(orderResult.activationPackage?.matchingId)}
+                          className="text-primary-pink font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+                        >
+                          <FiCopy size={11} /> Copy
+                        </button>
+                      </div>
+                      <p className="font-mono text-gray-800 bg-gray-50 px-2.5 py-1.5 rounded border border-gray-100 select-all">
+                        {orderResult.activationPackage?.matchingId}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center text-gray-500 text-[11px] mb-0.5">
+                        <span className="font-semibold">Full LPA String:</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyLpa(orderResult.activationPackage?.lpaActivationCode)}
+                          className="text-primary-pink font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+                        >
+                          <FiCopy size={11} /> Copy
+                        </button>
+                      </div>
+                      <p className="font-mono text-[11px] text-gray-600 bg-gray-50 px-2.5 py-1 rounded border border-gray-100 break-all select-all">
+                        {orderResult.activationPackage?.lpaActivationCode}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              {/* Troubleshooting helper alert */}
+              <div className="text-left rounded-xl border border-amber-200 bg-amber-50/60 p-3.5 space-y-1.5 text-xs text-amber-900">
+                <p className="font-bold flex items-center gap-1.5 text-amber-950">
+                  ⚠️ Seeing &ldquo;Unable to Activate eSIM&rdquo; on your phone?
+                </p>
+                <ul className="list-disc list-inside space-y-1 text-[11px] text-amber-900/90 pl-1">
+                  <li>
+                    <strong>Carrier Lock:</strong> Your phone must be network-unlocked. Check iPhone <em>Settings &gt; General &gt; About &gt; Carrier Lock</em> (must say &ldquo;No SIM restrictions&rdquo;).
+                  </li>
+                  <li>
+                    <strong>Manual Entry:</strong> On your phone, tap <em>&ldquo;Enter Details Manually&rdquo;</em> and paste the <strong>SM-DP+ Address</strong> and <strong>Activation Code</strong> above.
+                  </li>
+                  <li>
+                    <strong>Stable Internet:</strong> Ensure you are connected to a strong Wi-Fi network while downloading the eSIM profile.
+                  </li>
+                </ul>
               </div>
 
               {/* Instructions */}

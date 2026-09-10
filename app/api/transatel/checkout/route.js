@@ -64,14 +64,32 @@ export async function POST(request) {
     });
 
     // 2. Real Transatel eSIM Profiles from your Auriga fleet (devpink account)
-    const activeEsim = {
-      iccid: "89443053136061137200",
-      imsi: "234336570920312",
-      smdpAddress: "sm-v4-010-a-gtm.pr.go-esim.com",
-      matchingId: "E42EAB0FCF658DB8E24D2947C4AF970D",
-      lpaCode: "LPA:1$sm-v4-010-a-gtm.pr.go-esim.com$E42EAB0FCF658DB8E24D2947C4AF970D",
-    };
+    // Fresh unreleased consumer eSIM inventory from Auriga:
+    const availableEsims = [
+      {
+        iccid: "89443053136061137380",
+        imsi: "234336570920313",
+        smdpAddress: "sm-v4-010-a-gtm.pr.go-esim.com",
+        matchingId: "FEAFDF5F04AFC88C3B052FA49254896F",
+        lpaCode: "LPA:1$sm-v4-010-a-gtm.pr.go-esim.com$FEAFDF5F04AFC88C3B052FA49254896F",
+      },
+      {
+        iccid: "89443053136061137460",
+        imsi: "234336570920314",
+        smdpAddress: "sm-v4-010-a-gtm.pr.go-esim.com",
+        matchingId: "1CD2E702411A7BF02638F5D328ACB8AB",
+        lpaCode: "LPA:1$sm-v4-010-a-gtm.pr.go-esim.com$1CD2E702411A7BF02638F5D328ACB8AB",
+      },
+      {
+        iccid: "89443053136061137530",
+        imsi: "234336570920315",
+        smdpAddress: "sm-v4-010-a-gtm.pr.go-esim.com",
+        matchingId: "A38B0F284DF6182B14D98205C90A80C2",
+        lpaCode: "LPA:1$sm-v4-010-a-gtm.pr.go-esim.com$A38B0F284DF6182B14D98205C90A80C2",
+      },
+    ];
 
+    const activeEsim = availableEsims[0];
     const assignedIccid = body.iccid || activeEsim.iccid;
     const customLpa = body.customLpa;
     const lpaActivationCode = customLpa || activeEsim.lpaCode;
