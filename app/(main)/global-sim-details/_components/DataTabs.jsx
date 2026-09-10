@@ -1,244 +1,20 @@
-import React, { useState } from "react";
-import { FiCalendar, FiMinus, FiPlus } from "react-icons/fi";
+"use client";
+import React, { useState, useMemo } from "react";
+import { FiWifi, FiGlobe } from "react-icons/fi";
 
-const TABS = [
-  { id: "unlimited", label: "Unlimited Data" },
-  { id: "standard", label: "Standard" },
-  { id: "custom", label: "Customize Pack" },
-];
-
-const STANDARD_PACKAGES = [
-  {
-    duration: "3 Day",
-    plans: [
-      { gb: 1, price: 4.99 },
-      { gb: 3, price: 5.5 },
-    ],
-  },
-  {
-    duration: "7 Day",
-    plans: [
-      { gb: 3, price: 6.0 },
-      { gb: 5, price: 7.0 },
-      { gb: 10, price: 10.0, full: true },
-    ],
-  },
-  {
-    duration: "15 Day",
-    plans: [
-      { gb: 5, price: 7.5 },
-      { gb: 10, price: 10.5 },
-      { gb: 20, price: 17.5, full: true },
-    ],
-  },
-  {
-    duration: "30 Day",
-    plans: [
-      { gb: 5, price: 8.5 },
-      { gb: 10, price: 11.0 },
-      { gb: 20, price: 18.5 },
-      { gb: 50, price: 27.5 },
-    ],
-  },
-];
-
-const PRICE_PER_DAY = 1.5;
-const PRICE_PER_GB = 6.5;
-const PRICE_PER_100_MIN = 1.5;
-
+// ─── Helpers ────────────────────────────────────────────────────────────────
 function currency(n) {
-  return `$ ${n.toFixed(2)}`;
+  return `$ ${Number(n).toFixed(2)}`;
 }
 
-// Unlimited Data tab
-function UnlimitedTab({ onSubmit }) {
-  const [duration, setDuration] = useState(5);
-  const [people, setPeople] = useState(2);
-  const pricePerPersonPerDay = 0.599;
-  const total = duration * people * pricePerPersonPerDay;
-
-  const updatePeople = delta => {
-    setPeople(prev => Math.max(1, prev + delta));
-  };
-
-  return (
-    <div className="space-y-6">
-      <div className="grid sm:grid-cols-2 gap-6">
-        <div>
-          <p className="font-semibold text-gray-900 mb-1">Trip Duration</p>
-          <label className="text-sm text-gray-500 font-medium mb-2 block">
-            Trip Duration
-          </label>
-          <div className="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3">
-            <input
-              type="number"
-              min={1}
-              value={duration}
-              onChange={e =>
-                setDuration(Math.max(1, Number(e.target.value) || 1))
-              }
-              className="w-16 outline-none text-gray-900"
-            />
-            <FiCalendar size={18} className="text-gray-400" />
-          </div>
-        </div>
-
-        <div>
-          <p className="font-semibold text-gray-900 mb-1">How Many People</p>
-          <label className="text-sm text-gray-500 mb-2 block font-medium">
-            Selected one eSIM Per Person
-          </label>
-          <div className="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3">
-            <button
-              type="button"
-              onClick={() => updatePeople(-1)}
-              className="text-gray-500 hover:text-primary-pink disabled:opacity-30 cursor-pointer"
-              disabled={people <= 1}
-              aria-label="Decrease people"
-            >
-              <FiMinus size={18} />
-            </button>
-            <span className="text-gray-900 font-medium">
-              {String(people).padStart(2, "0")}
-            </span>
-            <button
-              type="button"
-              onClick={() => updatePeople(1)}
-              className="text-gray-500 hover:text-primary-pink cursor-pointer"
-              aria-label="Increase people"
-            >
-              <FiPlus size={18} />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <TotalAndSubmit
-        total={total}
-        label="Get Unlimited Internet"
-        onSubmit={() =>
-          onSubmit?.({ type: "unlimited", duration, people, total })
-        }
-      />
-    </div>
-  );
-}
-
-// Standard tab
-function StandardTab({ onSubmit }) {
-  const [selected, setSelected] = useState(null);
-
-  return (
-    <div className="space-y-5">
-      <p className="font-semibold text-lg text-gray-900">Choose your package</p>
-
-      <div className="space-y-6">
-        {STANDARD_PACKAGES.map(group => (
-          <div key={group.duration}>
-            <p className="text-sm font-semibold text-gray-900 mb-2">
-              {group.duration}
-            </p>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {group.plans.map(plan => {
-                const id = `${group.duration}-${plan.gb}`;
-                const isSelected = selected?.id === id;
-                return (
-                  <button
-                    key={id}
-                    type="button"
-                    onClick={() =>
-                      setSelected({
-                        id,
-                        duration: group.duration,
-                        gb: plan.gb,
-                        price: plan.price,
-                      })
-                    }
-                    className={`flex items-center cursor-pointer justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors duration-200 ${
-                      plan.full ? "sm:col-span-2" : ""
-                    } ${
-                      isSelected
-                        ? "border-primary-pink text-primary-pink bg-pink-50"
-                        : "border-gray-200 text-gray-900 hover:border-gray-300 hover:bg-gray-50"
-                    }`}
-                  >
-                    <span>{plan.gb} GB</span>
-                    <span>${plan.price.toFixed(2)} USD</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <TotalAndSubmit
-        total={selected?.price ?? 0}
-        label="Buy Now"
-        disabled={!selected}
-        onSubmit={() => onSubmit?.({ type: "standard", ...selected })}
-      />
-    </div>
-  );
-}
-
-// Customize Pack tab
-function CustomTab({ onSubmit }) {
-  const [days, setDays] = useState(16);
-  const [gb, setGb] = useState(12);
-  const [minutes, setMinutes] = useState(500);
-
-  const total =
-    days * PRICE_PER_DAY +
-    gb * PRICE_PER_GB +
-    (minutes / 100) * PRICE_PER_100_MIN;
-
-  const field = (label, value, setValue, unit, min = 0) => (
-    <div>
-      <label className="text-sm text-gray-500 mb-2 block">{label}</label>
-      <div className="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3">
-        <input
-          type="number"
-          min={min}
-          value={value}
-          onChange={e => setValue(Math.max(min, Number(e.target.value) || min))}
-          className="w-20 outline-none text-gray-900"
-        />
-        <span className="text-sm text-gray-400">{unit}</span>
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="space-y-5">
-      <p className="font-semibold text-lg text-gray-900">Customize your package</p>
-
-      <div className="grid sm:grid-cols-3 gap-6">
-        {field("Validity (in days)", days, setDays, "Days", 1)}
-        {field("Internet", gb, setGb, "GB", 1)}
-        {field("Minutes", minutes, setMinutes, "Min", 0)}
-      </div>
-
-      <TotalAndSubmit
-        total={total}
-        label="Buy Now"
-        onSubmit={() =>
-          onSubmit?.({ type: "custom", days, gb, minutes, total })
-        }
-      />
-    </div>
-  );
-}
-
-// Shared total + submit button
+// ─── Total + Submit ──────────────────────────────────────────────────────────
 function TotalAndSubmit({ total, label, onSubmit, disabled }) {
   return (
     <div className="pt-5 border-t border-gray-100 space-y-4">
       <div className="flex items-center justify-between">
         <span className="font-semibold text-gray-900">Total Amount</span>
-        <span className="font-semibold text-gray-900">{currency(total)}</span>
+        <span className="font-bold text-lg text-primary-pink">{currency(total)}</span>
       </div>
-
       <button
         type="button"
         disabled={disabled}
@@ -251,44 +27,185 @@ function TotalAndSubmit({ total, label, onSubmit, disabled }) {
   );
 }
 
-const DataTabs = ({ onSubmit }) => {
-  const [activeTab, setActiveTab] = useState("unlimited");
+// ─── Live Plans Tab (from Transatel) ─────────────────────────────────────────
+function StandardTab({ plans = [], country = "", onSubmit }) {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  // Group plans by duration
+  const grouped = useMemo(() => {
+    const map = new Map();
+    plans.forEach((p) => {
+      const key = p.duration || `${p.durationDays} days`;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(p);
+    });
+    return Array.from(map.entries()).map(([duration, items]) => ({ duration, items }));
+  }, [plans]);
+
+  if (!plans.length) {
+    return (
+      <div className="py-8 text-center text-gray-400 text-sm font-medium">
+        <FiGlobe size={28} className="mx-auto mb-2 text-gray-300" />
+        No local plans available for {country}. Check regional or global plans below.
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <p className="font-semibold text-lg text-gray-900">Choose your plan</p>
+
+      {/* Plan Groups */}
+      <div className="space-y-6">
+        {grouped.map(({ duration, items }) => (
+          <div key={duration}>
+            <p className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-pink inline-block" />
+              {duration}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {items.map((plan) => {
+                const id = plan.productId;
+                const isSelected = selectedPlan?.productId === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => setSelectedPlan(plan)}
+                    className={`flex items-center justify-between rounded-xl border px-4 py-3.5 text-sm font-medium transition-all duration-200 cursor-pointer ${
+                      isSelected
+                        ? "border-primary-pink bg-pink-50 text-primary-pink"
+                        : "border-gray-200 text-gray-900 hover:border-gray-300 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <FiWifi size={15} className={isSelected ? "text-primary-pink" : "text-gray-400"} />
+                      <span className="font-semibold">{plan.dataText}</span>
+                    </span>
+                    <span className="font-bold">
+                      ${plan.price.toFixed(2)}{" "}
+                      <span className="font-normal text-xs text-gray-400">{plan.currency}</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <TotalAndSubmit
+        total={selectedPlan?.price ?? 0}
+        label="Buy Now"
+        disabled={!selectedPlan}
+        onSubmit={() => onSubmit?.({ type: "standard", plan: selectedPlan, total: selectedPlan?.price ?? 0 })}
+      />
+    </div>
+  );
+}
+
+// ─── Regional / Global Plans section ─────────────────────────────────────────
+function AlternatePlans({ regionalPlans = [], globalPlans = [] }) {
+  const [show, setShow] = useState(regionalPlans.length > 0 ? "regional" : "global");
+
+  const plans = show === "regional" ? regionalPlans : globalPlans;
+  if (!regionalPlans.length && !globalPlans.length) return null;
 
   return (
     <div className="container mt-6 md:mt-8">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-lg font-semibold text-gray-900 mb-2.5">Data</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-2.5">
+          Multi-Country Plans
+        </h2>
+        <p className="text-sm text-gray-500 font-medium mb-4">
+          Traveling to multiple countries? These plans also cover your destination.
+        </p>
 
         <div className="shadow border border-gray-100 rounded-2xl p-4 md:p-5">
-          <div className="flex pb-5 md:pb-7">
-            {TABS.map(tab => {
-              const isActive = tab.id === activeTab;
-
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`relative text-[13px] md:text-base flex-1 font-semibold pb-3 transition-colors duration-300 border-b cursor-pointer ${
-                    isActive
-                      ? "text-primary-pink border-primary-pink border-b-2"
-                      : "text-gray-500 hover:text-gray-700 border-gray-300"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
+          {/* Toggle */}
+          <div className="flex gap-2 mb-5">
+            {regionalPlans.length > 0 && (
+              <button
+                onClick={() => setShow("regional")}
+                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                  show === "regional"
+                    ? "bg-primary-pink text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Regional ({regionalPlans.length})
+              </button>
+            )}
+            {globalPlans.length > 0 && (
+              <button
+                onClick={() => setShow("global")}
+                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                  show === "global"
+                    ? "bg-primary-pink text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                Global ({globalPlans.length})
+              </button>
+            )}
           </div>
 
-          <div className="">
-            {activeTab === "unlimited" && <UnlimitedTab onSubmit={onSubmit} />}
-            {activeTab === "standard" && <StandardTab onSubmit={onSubmit} />}
-            {activeTab === "custom" && <CustomTab onSubmit={onSubmit} />}
+          <div className="grid sm:grid-cols-2 gap-3">
+            {plans.map((plan) => (
+              <div
+                key={plan.productId}
+                className="flex items-center justify-between rounded-xl border border-gray-200 px-4 py-3.5 hover:border-primary-pink hover:bg-pink-50/40 transition-all cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">{plan.flag}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800 leading-tight">
+                      {plan.name || plan.title}
+                    </p>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      {plan.dataText} · {plan.duration}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-sm font-bold text-gray-700">
+                  ${plan.price.toFixed(2)}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+// ─── Main DataTabs Component ─────────────────────────────────────────────────
+const DataTabs = ({
+  localPlans = [],
+  regionalPlans = [],
+  globalPlans = [],
+  country = "",
+  onSubmit,
+}) => {
+  return (
+    <>
+      <div className="container mt-6 md:mt-8">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-lg font-semibold text-gray-900 mb-2.5">Data Plans</h2>
+
+          <div className="shadow border border-gray-100 rounded-2xl p-4 md:p-5">
+            <StandardTab
+              plans={localPlans}
+              country={country}
+              onSubmit={onSubmit}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Multi-Country Alternate Plans */}
+      <AlternatePlans regionalPlans={regionalPlans} globalPlans={globalPlans} />
+    </>
   );
 };
 

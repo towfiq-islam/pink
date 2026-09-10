@@ -4,13 +4,14 @@ import { FiSmartphone, FiChevronRight } from "react-icons/fi";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import CompatibilityModal from "./CompatibilityModal";
 
-export function NetworkCard({ country, flagEmoji }) {
-  const [open, isOpen] = useState(false);
+export function NetworkCard({ country, flagEmoji, operators = [], topSpeed = "" }) {
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="container pt-5 md:pt-7">
       <div className="max-w-5xl mx-auto">
-        <nav className="text-sm text-gray-400 font-medium mb-2 md:mb-3 flex items-center gap-1">
+        {/* Breadcrumb */}
+        <nav className="text-sm text-gray-400 font-medium mb-2 md:mb-3 flex items-center gap-1 flex-wrap">
           <span>Global Sim</span>
           <span>/</span>
           <span>Local</span>
@@ -18,19 +19,56 @@ export function NetworkCard({ country, flagEmoji }) {
           <span className="text-primary-pink font-medium">{country}</span>
         </nav>
 
-        <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-3 md:mb-6">iPhone 17 Pro Max</h1>
+        {/* Hero Title */}
+        <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold mb-3 md:mb-6">
+          {country} eSIM
+        </h1>
 
+        {/* Main Card */}
         <div className="shadow border border-gray-100 rounded-2xl p-4 md:p-7 space-y-5">
-          <div className="flex items-center gap-4 pb-5 border-b border-gray-200">
-            <span className="text-xl font-medium leading-none bg-gray-200 w-14 h-10 rounded-lg grid place-items-center">
+          {/* Country + Operators Row */}
+          <div className="flex items-start gap-4 pb-5 border-b border-gray-200">
+            <span className="text-3xl font-medium leading-none bg-gray-100 w-16 h-14 rounded-xl grid place-items-center flex-shrink-0">
               {flagEmoji}
             </span>
-            <span className="font-semibold text-gray-700">{country}</span>
+            <div className="flex-1 min-w-0">
+              <span className="font-semibold text-gray-800 text-lg block mb-2">
+                {country}
+              </span>
+
+              {/* Network Operator Badges — from Transatel */}
+              {operators.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {operators.map((op) => (
+                    <span
+                      key={op.name}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse inline-block" />
+                      {op.name}
+                      {op.networkTypes?.length > 0 && (
+                        <span className="text-blue-500">
+                          · {op.networkTypes.slice(0, 2).join("/")}
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Top Speed — derived from Transatel operator data */}
+              {topSpeed && (
+                <span className="inline-block mt-2 text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
+                  {topSpeed}
+                </span>
+              )}
+            </div>
           </div>
 
+          {/* Check Compatibility Button */}
           <button
             type="button"
-            onClick={() => isOpen(true)}
+            onClick={() => setOpen(true)}
             className="w-fit flex items-center justify-between rounded-xl shadow-xs border border-gray-200 cursor-pointer px-4 py-3.5 duration-300 text-sm font-semibold text-gray-700 hover:border-primary-pink hover:text-primary-pink transition-colors"
           >
             <span className="flex items-center gap-2 pe-3">
@@ -59,7 +97,7 @@ export function NetworkCard({ country, flagEmoji }) {
         </div>
       </div>
 
-      <Modal open={open} onClose={() => isOpen(false)}>
+      <Modal open={open} onClose={() => setOpen(false)}>
         <CompatibilityModal />
       </Modal>
     </div>
