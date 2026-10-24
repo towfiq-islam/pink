@@ -37,7 +37,8 @@ export function BestDeals() {
           {DEALS.map((deal, i) => (
             <Link
               key={i}
-              href={`/product-details/1`}
+              href={``}
+              // href={`/product-details/1`}
               className="rounded-2xl border border-gray-100 duration-300 transition hover:border-primary-pink/30 hover:bg-pink-50/20 shadow p-4 md:p-5"
             >
               <p className="font-semibold text-gray-700">{deal?.brand}</p>
