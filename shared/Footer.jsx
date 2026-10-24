@@ -8,9 +8,9 @@ import { FaFacebook } from "react-icons/fa";
 const NAV_LINKS = [
   { label: "Plan", path: "/prepaid-plan" },
   { label: "VoIP", path: "/voip" },
-  { label: "Shop", path: "/shop" },
+  // { label: "Shop", path: "/shop" },
   { label: "Global Sims", path: "/global-sims" },
-  { label: "Contact Us", path: "/contact-us" },
+  // { label: "Contact Us", path: "/contact-us" },
 ];
 
 const Footer = () => {
