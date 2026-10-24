@@ -26,21 +26,21 @@ const Navbar = () => {
   const [isSubmenuOpen, setSubmenuOpen] = useState(false);
   const closeTimeoutRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.classList.add("overflow-hidden");
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //   }
-  //   return () => {
-  //     document.body.classList.remove("overflow-hidden");
-  //   };
-  // }, [isOpen]);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
 
-  // useEffect(() => {
-  //   return () => {
-  //     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-  //   };
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
   }, []);
 
   const handleSubmenuEnter = () => {
