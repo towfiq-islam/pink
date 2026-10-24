@@ -24,9 +24,12 @@ export function Hero() {
             number on an Experience More or Experience Beyond plan.
           </p>
 
-          <Link href={`/product-details/1`} className="mt-5 primary_btn block w-fit">
-            Shop Now
+          <Link href="" className="mt-5 primary_btn block w-fit">
+            Comming Soon
           </Link>
+          {/* <Link href={`/product-details/1`} className="mt-5 primary_btn block w-fit">
+            Shop Now
+          </Link> */}
         </div>
       </div>
     </section>

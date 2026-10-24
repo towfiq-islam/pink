@@ -9,7 +9,7 @@ import { Faq } from "./_components/Faq";
 const page = () => {
   return (
     <>
-      <QuickLinks />
+      {/* <QuickLinks /> */}
       <Hero />
       <HomeInternetAndSims />
       <BestDeals />
