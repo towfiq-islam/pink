@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "Global Sims", path: "/global-sims" },
   { label: "VoIP", path: "/voip" },
-  { label: "Shop", path: "/shop" },
+  // { label: "Shop", path: "/shop" },
   { label: "Prepaid Plan", path: "" },
 ];
 
@@ -135,9 +135,9 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3 lg:gap-4">
-          <button className="text-gray-700 duration-300 transition-colors hover:text-white hover:bg-primary-pink grid place-items-center size-10 md:size-11 rounded-full cursor-pointer bg-gray-100">
+          {/* <button className="text-gray-700 duration-300 transition-colors hover:text-white hover:bg-primary-pink grid place-items-center size-10 md:size-11 rounded-full cursor-pointer bg-gray-100">
             <IoCartOutline className="text-2xl" />
-          </button>
+          </button> */}
 
           <Link
             href=""

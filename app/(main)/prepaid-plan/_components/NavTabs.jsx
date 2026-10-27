@@ -9,7 +9,7 @@ const NAV_TABS = [
     icon: FiRepeat,
     path: "/own-phone",
   },
-  { label: "Prepaid Phone", icon: MdSpeakerPhone, path: "/prepaid-phone" },
+  // { label: "Prepaid Phone", icon: MdSpeakerPhone, path: "/prepaid-phone" },
   { label: "Benefits", icon: FiGift, path: "/benefits" },
 ];
 

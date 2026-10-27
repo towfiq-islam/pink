@@ -12,7 +12,8 @@ const Product = ({ product, isCompare, isSelected, onToggleCompare }) => {
 
   return (
     <Link
-      href={`/product-details/1`}
+      href={``}
+      // href={`/product-details/1`}
       className="rounded-2xl border border-gray-100 shadow p-4.5 2xl:p-5 flex gap-5 items-center group hover:bg-pink-50/30 hover:border-primary-pink hover:scale-[1.02] duration-300 transition-all"
     >
       {/* Left */}
@@ -59,14 +60,14 @@ const Product = ({ product, isCompare, isSelected, onToggleCompare }) => {
           </button>
         ) : (
           <div className="mt-5 flex items-center gap-3">
-            <button className="flex-1 primary_btn !py-2.5">Shop Now</button>
+            <button className="flex-1 primary_btn !py-2.5">Comming Soon</button>
 
-            <button
+            {/* <button
               aria-label="Add to bag"
               className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-600 hover:border-pink-300 hover:text-white hover:bg-primary-pink text-xl cursor-pointer bg-gray-200"
             >
               <TbShoppingBag />
-            </button>
+            </button> */}
           </div>
         )}
       </div>
