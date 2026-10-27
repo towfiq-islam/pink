@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { FaAngleDown, FaBars } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
+import logo from "@/assets/logo.jpg";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },
@@ -54,13 +56,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="border-b border-gray-100 bg-white py-3 md:py-4 lg:py-4.5 sticky top-0 z-50">
+    <nav className="border-b border-gray-100 bg-white sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         <Link
           href="/"
           className="text-xl font-semibold tracking-wide text-[#FF69B4]"
         >
-          LOGO
+          <Image src={logo} alt="logo" width={130} height={50} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-12 text-gray-600">
