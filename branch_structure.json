@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "main",
+    "origin",
+    "towfiq"
+  ],
+  "parent": {
+    "main": null,
+    "origin": "main",
+    "towfiq": "main"
+  },
+  "order": [
+    "main",
+    "origin",
+    "towfiq"
+  ]
+}
